@@ -1,4 +1,5 @@
 import React from "react";
+import Article from "../video_articles/video_articles";
 import other1 from "../images/other-1.png";
 import other2 from "../images/other-2.png";
 import "./body.css";
@@ -6,6 +7,7 @@ import "./body.css";
 function Body() {
   return (
     <div className="container">
+      <Article />
       <section className="other-topics">
         <header>Other topics</header>
 

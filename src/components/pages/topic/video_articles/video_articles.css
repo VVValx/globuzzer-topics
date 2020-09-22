@@ -1,0 +1,152 @@
+.article {
+  margin: 20px 0;
+}
+.article-left {
+  text-align: center;
+}
+
+.btn-group {
+  margin: 25px 0;
+}
+
+.btn {
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #858585;
+}
+
+.btn-art {
+  margin-left: 20px;
+}
+
+.search {
+  margin: 25px 0;
+}
+
+.search input {
+  border: 1px solid #c3c3c3;
+  width: 500px;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+#search_input::placeholder {
+  opacity: 70%;
+  font-size: 18px;
+  color: #888888;
+}
+
+.article-card-container {
+  margin: 25px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.article-card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.article-card img {
+  width: 100%;
+}
+
+.desc {
+  margin: 10px;
+  font-size: 14px;
+  text-align: left;
+  color: #6b6b6b;
+}
+
+.desc-items {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desc-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.desc-left p {
+  margin-left: 10px;
+}
+
+.helsinki {
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+
+  box-shadow: 0 10 20px rgba(0, 0, 0, 0.2);
+}
+
+.helsinki-left {
+  flex-basis: 50%;
+  position: relative;
+  flex-shrink: inherit;
+}
+
+#helsinki {
+  width: 100%;
+}
+
+.helsinki-desc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.helsinki-desc p {
+  color: #fff;
+  margin-top: 20px;
+}
+
+.helsinki-right {
+  flex-basis: 50%;
+  text-align: justify;
+  background: #ffecec;
+  position: relative;
+}
+
+.center {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.helsinki-right header {
+  font-weight: bold;
+  font-size: 24px;
+  color: #979797;
+}
+
+article p {
+  font-size: 14px;
+  color: #979797;
+
+  margin: 15px 0;
+}
+
+.more {
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.more p:first-child {
+  font-size: 18px;
+  color: #f24b6a;
+}
+
+.more p:last-child {
+  font-size: 15px;
+  color: #f7879b;
+}
