@@ -1,44 +1,28 @@
 import React, { useState } from "react";
 import other1 from "../images/other-1.png";
 import playButton from "../images/playButton.png";
+import mask from "../images/mask.png";
+import { sliceData } from "../../../../utils/sliceData";
+import { articlesData, videoData } from "../../../../utils/data";
 import "./video_articles.css";
 
 function Article() {
   const [input, setInput] = useState("");
-  const [articles, setArticles] = useState([
-    {
-      id: 1,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      imgPath: require("../images/helsinki.jpg"),
-      userImg: require("../images/user.png"),
-    },
-    {
-      id: 2,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      imgPath: require("../images/helsinki.jpg"),
-      userImg: require("../images/user.png"),
-    },
-    {
-      id: 3,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      imgPath: require("../images/helsinki.jpg"),
-      userImg: require("../images/user.png"),
-    },
-    {
-      id: 4,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 0,
-      imgPath: require("../images/helsinki.jpg"),
-      userImg: require("../images/user.png"),
-    },
-  ]);
+  const [data, setData] = useState(videoData());
+  const [title, setTitle] = useState("videos");
+  const [pageSize, setPageSize] = useState(4);
+
+  const slicedData = sliceData(data, 0, pageSize);
+
+  const render =
+    input.length > 2
+      ? data.filter(
+          (article) =>
+            article.title.toLocaleLowerCase().startsWith(input) ||
+            article.title.toLocaleLowerCase().endsWith(input) ||
+            article.title.toLocaleLowerCase().includes(input)
+        )
+      : slicedData;
 
   const articleLikes = ({ likes }) => {
     if (likes < 1) return "";
@@ -50,28 +34,71 @@ function Article() {
     return likes;
   };
 
-  const handleChange = () => {};
+  const handleClick = ({ target: btn }) => {
+    if (btn.innerText.toLocaleLowerCase() === "video") {
+      setData(videoData());
+      setTitle("videos");
+    } else {
+      setData(articlesData());
+      setTitle("articles");
+    }
+  };
+
+  const moreArticle = () => {
+    let size = pageSize + 4;
+
+    if (pageSize > data.length) size = data.length;
+    setPageSize(size);
+  };
+
+  const btnStyle = (a) => {
+    if (a === "video") {
+      return {
+        background: title === "videos" && "#f24b6a",
+        color: title === "videos" && "#fff",
+      };
+    } else {
+      return {
+        background: title === "articles" && "#f24b6a",
+        color: title === "articles" && "#fff",
+      };
+    }
+  };
+
   return (
     <section className="article">
       <div className="article-left">
         <div className="btn-group">
-          <button className="btn btn-vid">Video</button>
-          <button className="btn btn-art">Article</button>
+          <button
+            className="btn btn-vid"
+            onClick={handleClick}
+            style={btnStyle("video")}
+          >
+            Video
+          </button>
+
+          <button
+            className="btn btn-art"
+            onClick={handleClick}
+            style={btnStyle("article")}
+          >
+            Article
+          </button>
         </div>
 
         <div className="search">
           <input
             type="text"
             value={input}
-            onChange={handleChange}
-            placeholder="Search videos here"
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={`Search ${title} here...`}
             id="search_input"
           />
         </div>
 
         <div className="article-card-container">
-          {articles.map((article) => (
-            <div className="article-card">
+          {render.map((article) => (
+            <div className="article-card" key={article.id}>
               <img src={article.imgPath} alt={article.title} />
 
               <div className="desc">
@@ -90,7 +117,14 @@ function Article() {
           ))}
         </div>
 
-        <div className="helsinki">
+        <div className="more-articles" onClick={moreArticle}>
+          more {title}
+        </div>
+
+        <div
+          className="helsinki"
+          style={{ display: title !== "articles" && "none" }}
+        >
           <div className="helsinki-left">
             <img src={other1} alt="helsinki" id="helsinki" />
 
@@ -100,34 +134,39 @@ function Article() {
             </div>
           </div>
           <div className="helsinki-right">
-            <div className="center">
-              <header>
-                <p>Helsinki design district</p>
-              </header>
+            <header>
+              <p>Helsinki design district</p>
+            </header>
 
-              <article>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud.
-                </p>
+            <div className="para">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud.
+              </p>
 
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore.
-                </p>
-              </article>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore.
+              </p>
+            </div>
 
-              <div className="more">
-                <p>View more details</p>
+            <div className="more">
+              <p>View more details</p>
 
-                <p>share this video</p>
-              </div>
+              <p>share this video</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="article-right"></div>
+      <div className="article-right">
+        <div className="article-right-top">
+          <img src={mask} alt="mask" />
+
+          <p>Google launches educational coronavirus website</p>
+        </div>
+        <div className="article-right-bottom"></div>
+      </div>
     </section>
   );
 }

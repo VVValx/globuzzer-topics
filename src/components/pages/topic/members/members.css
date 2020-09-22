@@ -1,0 +1,47 @@
+.member-container {
+  margin: 50px 0;
+}
+
+.member-header {
+  text-align: center;
+  color: #555555;
+  font-size: 36px;
+  margin: 0 auto;
+  padding: 25px 0;
+}
+
+.member-details {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+  padding: 15px 0;
+  align-items: center;
+}
+
+.details header {
+  text-align: center;
+  color: #828282;
+  font-size: 24px;
+
+  margin-top: 5px;
+  padding: 5px 0;
+}
+
+.details p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details span {
+  color: #828282;
+  font-size: 14px;
+}
+
+.red-circle {
+  font-size: 80px;
+  padding: 15px 40px;
+  font-weight: 300;
+  border-radius: 100%;
+  background: #f4627d;
+  color: #fff;
+}
