@@ -1,0 +1,53 @@
+.banner {
+  height: 630px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.b-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ecf0f1;
+  text-align: center;
+  width: 100%;
+}
+
+.b-header h1 {
+  font-size: 50px;
+  letter-spacing: 1px;
+  line-height: 64px;
+}
+
+.b-header p {
+  font-weight: 100;
+  font-size: 30px;
+  line-height: 24px;
+}
+
+.b-center button {
+  border: none;
+  margin-top: 25px;
+  color: #ecf0f1;
+  background: #f24b6a;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+
+.b-center h2 {
+  margin-top: 50px;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.b-center select {
+  padding: 10px 30px;
+  border-radius: 10px;
+  width: 524px;
+  border: none;
+  color: #a6acaf;
+  font-size: 18px;
+}

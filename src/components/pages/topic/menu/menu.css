@@ -1,0 +1,88 @@
+.top-menu {
+  width: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: #ecf0f1;
+  position: absolute;
+  z-index: 1;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+.m-center,
+.m-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.m-center li,
+.m-right li {
+  padding: 20px 5px;
+  margin: 0 10px;
+}
+
+.m-right li {
+  font-size: 14px;
+}
+
+.m-center li {
+  font-size: 16px;
+}
+.m-center li:last-child {
+  background: #f24b6a;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.m-right li:last-child {
+  border: 1px solid #ecf0f1;
+  padding: 0 17px;
+  border-radius: 5px;
+}
+
+.m-center li:not(:last-child):hover {
+  background: rgba(86, 101, 115, 0.1);
+}
+
+.m-center i {
+  position: absolute;
+}
+
+.destination {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  z-index: 1;
+  color: #ecf0f1;
+  top: 13%;
+  left: 30px;
+  background: #212121;
+}
+
+.destination ul:first-child li:first-child {
+  padding-top: 35px;
+}
+
+.destination ul:first-child {
+  padding-right: 80px;
+}
+
+.destination li {
+  padding: 5px 0;
+}
+
+.destination ul {
+  padding: 20px 15px;
+}
