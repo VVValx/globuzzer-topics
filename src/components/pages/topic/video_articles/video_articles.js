@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import other1 from "../images/other-1.png";
 import playButton from "../images/playButton.png";
-import mask from "../images/mask.png";
 import { sliceData } from "../../../../utils/sliceData";
-import { articlesData, videoData } from "../../../../utils/data";
+import { articlesData, videoData, slide } from "../../../../utils/data";
 import "./video_articles.css";
 
 function Article() {
@@ -11,6 +10,8 @@ function Article() {
   const [data, setData] = useState(videoData());
   const [title, setTitle] = useState("videos");
   const [pageSize, setPageSize] = useState(4);
+  const [index, setIndex] = useState(0);
+  const [slideShow, setSlide] = useState(slide[index]);
 
   const slicedData = sliceData(data, 0, pageSize);
 
@@ -63,6 +64,16 @@ function Article() {
         color: title === "articles" && "#fff",
       };
     }
+  };
+
+  const handleSlide = () => {
+    let i = index;
+
+    if (i === 2) i = 0;
+    else i += 1;
+
+    setIndex(i);
+    setSlide(slide[i]);
   };
 
   return (
@@ -161,10 +172,18 @@ function Article() {
       </div>
       <div className="article-right">
         <div className="article-right-top">
-          <img src={mask} alt="mask" />
+          <div className="slide">
+            <img src={slideShow.img} alt="mask" />
+            <p>{slideShow.description}</p>
+          </div>
 
-          <p>Google launches educational coronavirus website</p>
+          <div className="slide-dots">
+            <div onClick={handleSlide}></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
+
         <div className="article-right-bottom"></div>
       </div>
     </section>

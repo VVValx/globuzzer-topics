@@ -1,0 +1,29 @@
+.scrollTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  color: #fff;
+  opacity: 0.8;
+  animation: scroll 0.5s;
+}
+
+.scrollTop:hover {
+  opacity: 1;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    bottom: 0;
+  }
+
+  100% {
+    opacity: 0.8;
+    bottom: 20px;
+  }
+}

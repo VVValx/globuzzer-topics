@@ -1,6 +1,8 @@
 import clarion from "../components/pages/topic/images/clarion.png";
 import scandic from "../components/pages/topic/images/scandic.png";
 import backPackers from "../components/pages/topic/images/backPackers.png";
+import mask from "../components/pages/topic/images/mask.png";
+import other2 from "../components/pages/topic/images/other-2.png";
 
 export function articlesData() {
   return [
@@ -230,5 +232,25 @@ export const hotels = [
     rating: 3,
     recommended: "",
     img: clarion,
+  },
+];
+
+export const slide = [
+  {
+    id: 1,
+    img: mask,
+    description: "Goodle launches educational coronavirus website",
+  },
+  {
+    id: 2,
+    img: mask,
+    description:
+      "Looking for hotels? These are some of the best hotels in Helsinki",
+  },
+
+  {
+    id: 3,
+    img: mask,
+    description: "Attractions in Helsinki",
   },
 ];

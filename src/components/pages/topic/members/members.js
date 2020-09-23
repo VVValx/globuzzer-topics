@@ -7,7 +7,7 @@ import "./members.css";
 
 function Members() {
   return (
-    <div className="member-container">
+    <section className="member-container">
       <header className="member-header">Top members to meet</header>
 
       <div className="member-details">
@@ -55,7 +55,7 @@ function Members() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

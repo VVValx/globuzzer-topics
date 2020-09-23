@@ -5,7 +5,7 @@ import { hotels } from "../../../../utils/data";
 import "./hotels.css";
 
 function Hotels() {
-  const [data, setData] = useState(hotels);
+  const [data] = useState(hotels);
 
   const hotelPrice = (price) => {
     let string = "€";
