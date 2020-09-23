@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import icon_img from "../images/Vector.png";
 import logo from "../images/globuzzer_logo.png";
 import "./menu.css";
@@ -7,6 +7,17 @@ function Menu() {
   const [destinations, setDest] = useState(false);
   const [services, setService] = useState(false);
   const [topics, setTopic] = useState(false);
+  const [scroll, setScroll] = useState(false);
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 0) return setScroll(true);
+
+    setScroll(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
 
   const onDest = () => {
     setDest(!destinations);
@@ -30,12 +41,25 @@ function Menu() {
     return 18;
   };
 
+  const navStyle = () => {
+    if (scroll) {
+      return {
+        position: "fixed",
+        border: "none",
+        background: "rgba(0, 0, 0, 0.7)",
+        boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+        width: "100%",
+      };
+    }
+  };
+
   return (
     <React.Fragment>
-      <nav className="top-menu">
+      <nav className="top-menu" style={navStyle()}>
         <header className="m-header">
           <img src={logo} alt="logo" />
         </header>
+
         <ul className="m-center">
           <li onClick={onDest}>
             Destinations <i className="material-icons">arrow_drop_down</i>
@@ -49,6 +73,7 @@ function Menu() {
           <li>Pricing</li>
           <li>Own your own city section</li>
         </ul>
+
         <ul className="m-right">
           <li>
             <img src={icon_img} alt="weather-icon" /> {currentTemp() || " "}

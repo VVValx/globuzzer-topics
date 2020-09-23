@@ -10,6 +10,9 @@
   position: absolute;
   z-index: 1;
   border-bottom: 1px solid #ecf0f1;
+  transition-property: background;
+  transition-property: border;
+  transition: 0.1s;
 }
 
 ul {
