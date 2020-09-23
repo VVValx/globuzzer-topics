@@ -1,3 +1,7 @@
+import clarion from "../components/pages/topic/images/clarion.png";
+import scandic from "../components/pages/topic/images/scandic.png";
+import backPackers from "../components/pages/topic/images/backPackers.png";
+
 export function articlesData() {
   return [
     {
@@ -171,3 +175,60 @@ export function list() {
     },
   ];
 }
+
+export const hotels = [
+  {
+    id: 1,
+    title: "scandic hotel helsinki central station",
+    distance: 0.3,
+    price: 100,
+    rating: 4,
+    recommended: "highly recommended",
+    img: scandic,
+  },
+  {
+    id: 2,
+    title: "scandic hotel helsinki central station",
+    distance: 0.3,
+    price: 100,
+    rating: 4,
+    recommended: "highly recommended",
+    img: scandic,
+  },
+  {
+    id: 3,
+    title: "clarion hotel helsinki harbour",
+    distance: 0.8,
+    price: 80,
+    rating: 4,
+    recommended: "highly recommended",
+    img: clarion,
+  },
+  {
+    id: 4,
+    title: "scandic hotel etelä-töölö",
+    distance: 0.3,
+    price: 60,
+    rating: 3,
+    recommended: "",
+    img: scandic,
+  },
+  {
+    id: 5,
+    title: "backpackers hostel helsinki",
+    distance: 0.2,
+    price: 30,
+    rating: 3,
+    recommended: "highly recommended",
+    img: backPackers,
+  },
+  {
+    id: 6,
+    title: "clarion hotel helsinki-vantaa",
+    distance: 0.8,
+    price: 70,
+    rating: 3,
+    recommended: "",
+    img: clarion,
+  },
+];
