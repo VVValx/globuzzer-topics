@@ -184,6 +184,21 @@ function Article() {
           </div>
         </div>
 
+        <div className=" g-vimeo">
+          <div className="g-vimeo-content">
+            <header className="vimeo-header">Vimeo</header>
+
+            <div className="g-vimeo-p">
+              <p>customisable player</p>
+            </div>
+
+            <div className="g-vimeo-btn">
+              <p>a vimeo feature</p>
+              <button>Learn more</button>
+            </div>
+          </div>
+        </div>
+
         <div className="article-right-bottom"></div>
       </div>
     </section>

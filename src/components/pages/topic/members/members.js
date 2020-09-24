@@ -21,28 +21,30 @@ function Members() {
           </p>
         </div>
 
-        <div className="details">
-          <img src={casualBoy} alt="casualBoy" />
-          <header>Asya</header>
+        <div className="small-screen-render">
+          <div className="details">
+            <img src={casualBoy} alt="casualBoy" />
+            <header>Asya</header>
 
-          <p>
-            <span>#cook</span>
-            <span>#Finland</span>
-          </p>
-        </div>
+            <p>
+              <span>#cook</span>
+              <span>#Finland</span>
+            </p>
+          </div>
 
-        <div className="details">
-          <div className="red-circle">+</div>
-        </div>
+          <div className="details">
+            <div className="red-circle">+</div>
+          </div>
 
-        <div className="details">
-          <img src={womanBlack} alt="womanBlack" />
-          <header>Asya</header>
+          <div className="details">
+            <img src={womanBlack} alt="womanBlack" />
+            <header>Asya</header>
 
-          <p>
-            <span>#cook</span>
-            <span>#Finland</span>
-          </p>
+            <p>
+              <span>#cook</span>
+              <span>#Finland</span>
+            </p>
+          </div>
         </div>
 
         <div className="details">

@@ -22,21 +22,21 @@ function Hotels() {
       <header className="hotel-header">find suitable hotels</header>
 
       <div className="check">
-        <span>
+        <div>
           <input type="date" placeholder="Check-in" />
-        </span>
+        </div>
 
-        <span>
+        <div>
           <input type="date" placeholder="Check-out" />
-        </span>
+        </div>
 
-        <span>
+        <div>
           <select>
             <option>1</option>
             <option>2</option>
             <option>3+</option>
           </select>
-        </span>
+        </div>
       </div>
 
       <div className="hotel-flex">

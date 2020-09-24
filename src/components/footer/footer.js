@@ -13,9 +13,17 @@ function Footer() {
         <div className="own-left">
           <img src={globe} alt="globe" />
         </div>
+
         <div className="own-right">
-          <p>Want to have your own</p>
-          <p>secton?</p>
+          <div className="own-right-big">
+            <p>Want to have your own</p>
+            <p>secton?</p>
+          </div>
+
+          <div className="own-right-small">
+            <p>Become a part of our global community!</p>
+            <p>Apply to start your own travel blog</p>
+          </div>
 
           <button>Start now</button>
         </div>
@@ -76,6 +84,31 @@ function Footer() {
                 <img src={f_i} alt="facebook" />
               </span>
             </div>
+          </ul>
+        </nav>
+      </footer>
+
+      <footer className="footer-small">
+        <header>
+          <img src={logo} alt="logo" />
+        </header>
+
+        <nav className="footer-small-menu">
+          <ul>
+            <li>Backängsvägen 24 </li>
+            <li>192 73 Sollentuna, Sweden</li>
+            <li>+46 73 555 5 134</li>
+            <li>info@globuzzer.com</li>
+
+            <li>
+              <img src={f_i} alt="facebook" />
+
+              <img src={twitter} alt="twitter" />
+
+              <img src={pinterest} alt="pinterest" />
+            </li>
+
+            <li style={{ paddingTop: "50px" }}>Globuzzer 2020</li>
           </ul>
         </nav>
       </footer>

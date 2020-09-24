@@ -45,3 +45,16 @@
   background: #f4627d;
   color: #fff;
 }
+
+@media screen and (max-width: 900px) {
+  .member-details {
+    flex-direction: column;
+  }
+
+  .small-screen-render {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+  }
+}

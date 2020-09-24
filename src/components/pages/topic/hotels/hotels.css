@@ -18,8 +18,9 @@
   text-align: center;
 }
 
-.check span {
-  padding: 30px;
+.check div {
+  display: inline;
+  padding: 20px;
 }
 
 .check input,
@@ -165,4 +166,23 @@
 
 .right-p p:last-child {
   margin-top: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .vimeo {
+    display: none;
+  }
+
+  .check div {
+    display: block;
+    padding: 7px 0;
+  }
+
+  .hotel-flex {
+    display: block;
+  }
+
+  .hotel-list {
+    margin: 0;
+  }
 }
