@@ -6,7 +6,10 @@ import "./otherTopics.css";
 function OtherTopics() {
   return (
     <section className="other-topics">
-      <header className="other-topics-header">Other topics</header>
+      <header className="other-topics-header">
+        Other topics
+        <div className="underline"></div>
+      </header>
 
       <div className="card-container">
         <div className="card">

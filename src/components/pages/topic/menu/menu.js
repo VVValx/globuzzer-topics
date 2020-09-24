@@ -10,12 +10,12 @@ function Menu() {
 
   const handleScroll = () => {
     if (window.pageYOffset > 30) return setScroll(true);
-
     setScroll(false);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+
     document.body.addEventListener("click", () => setSidebar(false));
   }, []);
 
@@ -174,11 +174,12 @@ function Menu() {
         </ul>
       </nav>
 
-      <nav className="top-menu-small">
+      <nav className="top-menu-small" style={navStyle()}>
         <ul className="menu-small">
           <li className="logo">
             <img src={logo} alt="logo" />
           </li>
+
           <li className="bars" onClick={() => setSidebar(true)}>
             <VscThreeBars />
           </li>
@@ -187,7 +188,7 @@ function Menu() {
 
       <nav
         className="sidebar-small"
-        style={{ display: displaySidebar && "flex" }}
+        style={{ transform: displaySidebar && "translateX(0)" }}
       >
         <ul className="sidebar-small-ul sidebar-top">
           <li>Destination</li>

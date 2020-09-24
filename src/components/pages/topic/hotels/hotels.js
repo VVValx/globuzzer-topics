@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import like from "../images/like.png";
 import { hotels } from "../../../../utils/data";
@@ -19,7 +19,15 @@ function Hotels() {
 
   return (
     <section className="hotel">
-      <header className="hotel-header">find suitable hotels</header>
+      <header className="hotel-header">
+        find suitable hotels
+        <div className="underline"></div>
+      </header>
+
+      <header className="hotel-header hotel-header-small">
+        Hotels {`&`} hostels
+        <div className="underline"></div>
+      </header>
 
       <div className="check">
         <div>

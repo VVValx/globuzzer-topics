@@ -137,6 +137,7 @@ li {
     width: 100%;
     display: block;
     border-bottom: 1px solid #f9f9f9;
+    transition: all 1s;
   }
 
   .menu-small {
@@ -168,7 +169,8 @@ li {
     z-index: 3;
     font-size: 14px;
     font-weight: 600;
-    display: none;
+    transform: translateX(500px);
+    transition: transform 0.5s;
   }
 
   .sidebar-small li {
@@ -215,5 +217,11 @@ li {
   .sidebar-auth li:last-child {
     border: 1px solid #f24b6a;
     border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bars {
+    width: 80px;
   }
 }

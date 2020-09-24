@@ -8,9 +8,11 @@ import "./members.css";
 function Members() {
   return (
     <section className="member-container">
-      <header className="member-header">Top members to meet</header>
+      <header className="member-header">
+        Top members to meet<div className="underline"></div>
+      </header>
 
-      <div className="member-details">
+      <div className="member-details big-screen">
         <div className="details">
           <img src={blueWoman} alt="blueWoman" />
           <header>Asya</header>
@@ -21,7 +23,53 @@ function Members() {
           </p>
         </div>
 
-        <div className="small-screen-render">
+        <div className="details">
+          <img src={casualBoy} alt="casualBoy" />
+          <header>Asya</header>
+
+          <p>
+            <span>#cook</span>
+            <span>#Finland</span>
+          </p>
+        </div>
+
+        <div className="details">
+          <div className="red-circle">+</div>
+        </div>
+
+        <div className="details ">
+          <img src={womanBlack} alt="womanBlack" />
+          <header>Asya</header>
+
+          <p>
+            <span>#cook</span>
+            <span>#Finland</span>
+          </p>
+        </div>
+
+        <div className="details">
+          <img src={womanGlasses} alt="womanGlasses" />
+          <header>Asya</header>
+
+          <p>
+            <span>#cook</span>
+            <span>#Finland</span>
+          </p>
+        </div>
+      </div>
+
+      <div className="member-details small-screen">
+        <div className="details">
+          <img src={blueWoman} alt="blueWoman" />
+          <header>Asya</header>
+
+          <p>
+            <span>#cook</span>
+            <span>#Finland</span>
+          </p>
+        </div>
+
+        <div className="member-details-flex">
           <div className="details">
             <img src={casualBoy} alt="casualBoy" />
             <header>Asya</header>
@@ -36,7 +84,7 @@ function Members() {
             <div className="red-circle">+</div>
           </div>
 
-          <div className="details">
+          <div className="details ">
             <img src={womanBlack} alt="womanBlack" />
             <header>Asya</header>
 

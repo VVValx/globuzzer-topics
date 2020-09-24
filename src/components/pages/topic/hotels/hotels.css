@@ -10,11 +10,11 @@
   font-weight: 300;
   font-size: 36px;
   color: #555555;
-  padding: 40px 0;
+  padding: 10px 0;
 }
 
 .check {
-  margin: 30px 0;
+  margin: 15px 0;
   text-align: center;
 }
 
@@ -168,6 +168,22 @@
   margin-top: 10px;
 }
 
+.hotel-header-small {
+  display: none;
+}
+
+@keyframes hotel {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media screen and (max-width: 900px) {
   .vimeo {
     display: none;
@@ -184,5 +200,13 @@
 
   .hotel-list {
     margin: 0;
+  }
+
+  .hotel-header {
+    display: none;
+  }
+  .hotel-header-small {
+    display: block;
+    font-size: 24px;
   }
 }
