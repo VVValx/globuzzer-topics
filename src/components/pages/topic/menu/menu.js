@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { VscThreeBars } from "react-icons/vsc";
 import icon_img from "../images/Vector.png";
 import logo from "../images/globuzzer_logo.png";
 import "./menu.css";
 
 function Menu() {
   const [scroll, setScroll] = useState(false);
+  const [displaySidebar, setSidebar] = useState(false);
 
   const handleScroll = () => {
     if (window.pageYOffset > 30) return setScroll(true);
@@ -14,7 +16,8 @@ function Menu() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-  });
+    document.body.addEventListener("click", () => setSidebar(false));
+  }, []);
 
   const currentTemp = () => {
     return 18;
@@ -168,6 +171,46 @@ function Menu() {
           </li>
           <li>Log in</li>
           <li>Sign up</li>
+        </ul>
+      </nav>
+
+      <nav className="top-menu-small">
+        <ul className="menu-small">
+          <li className="logo">
+            <img src={logo} alt="logo" />
+          </li>
+          <li className="bars" onClick={() => setSidebar(true)}>
+            <VscThreeBars />
+          </li>
+        </ul>
+      </nav>
+
+      <nav
+        className="sidebar-small"
+        style={{ display: displaySidebar && "flex" }}
+      >
+        <ul className="sidebar-small-ul sidebar-top">
+          <li>Destination</li>
+          <li>Services</li>
+          <li>Topics</li>
+          <li>pricing</li>
+          <li>Career</li>
+          <li>About us</li>
+        </ul>
+
+        <div className="line"></div>
+
+        <ul className="sidebar-small-ul sidebar-bottom">
+          <div className="sidebar-btn">
+            <li>
+              <button>Own your own city section</button>
+            </li>
+          </div>
+
+          <div className="sidebar-auth">
+            <li>Login</li>
+            <li>Signup</li>
+          </div>
         </ul>
       </nav>
     </React.Fragment>

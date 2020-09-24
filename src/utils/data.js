@@ -2,7 +2,6 @@ import clarion from "../components/pages/topic/images/clarion.png";
 import scandic from "../components/pages/topic/images/scandic.png";
 import backPackers from "../components/pages/topic/images/backPackers.png";
 import mask from "../components/pages/topic/images/mask.png";
-import other2 from "../components/pages/topic/images/other-2.png";
 
 export function articlesData() {
   return [

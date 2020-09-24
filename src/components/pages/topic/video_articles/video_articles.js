@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import other1 from "../images/other-1.png";
 import playButton from "../images/playButton.png";
 import { sliceData } from "../../../../utils/sliceData";

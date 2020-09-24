@@ -5,6 +5,7 @@ import "./banner.css";
 
 function Banner() {
   const [data, setData] = useState([]);
+  const [current, setCurrent] = useState("visa issue");
 
   useEffect(() => {
     const init = list().filter((l) => l.id === 1);
@@ -17,16 +18,15 @@ function Banner() {
     );
 
     setData(init);
+    setCurrent(disp.innerText.toLocaleLowerCase());
   };
 
   const listStyle = (desc) => {
-    // return data.map(d=>{
-    //   if(d.title.toLocaleLowerCase() === desc) {
-    //     return {
-    //       background: "#ff889e",
-    //     };
-    //   }
-    // })
+    if (desc.toLocaleLowerCase() === current) {
+      return {
+        background: "#FF889E",
+      };
+    }
   };
 
   return (
