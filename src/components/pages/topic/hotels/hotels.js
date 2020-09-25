@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import _ from "lodash";
 import like from "../images/like.png";
 import { hotels } from "../../../../utils/data";

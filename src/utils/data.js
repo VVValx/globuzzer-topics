@@ -1,6 +1,10 @@
 import clarion from "../components/pages/topic/images/clarion.png";
 import scandic from "../components/pages/topic/images/scandic.png";
 import backPackers from "../components/pages/topic/images/backPackers.png";
+import helsinki from "../components/pages/topic/images/helsinki.jpg";
+import other1 from "../components/pages/topic/images/other-1.png";
+import other2 from "../components/pages/topic/images/other-2.png";
+import userImg from "../components/pages/topic/images/user.png";
 import mask from "../components/pages/topic/images/mask.png";
 
 export function articlesData() {
@@ -10,32 +14,57 @@ export function articlesData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/helsinki.jpg"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: helsinki,
+      userImg,
+      article: {
+        articleId: 1,
+        title: "Helsinki design district",
+        img: { title: "Accomodation in helsinki", path: helsinki },
+      },
+
+      videoId: "yawXq5TlgBU",
     },
     {
       id: 2,
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/helsinki.jpg"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: helsinki,
+      userImg,
+      article: {
+        articleId: 2,
+        title: "Helsinki design district",
+        img: { title: "Accomodation in helsinki", path: other2 },
+      },
+      videoId: "yawXq5TlgBU",
     },
     {
       id: 3,
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/helsinki.jpg"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: helsinki,
+      userImg,
+      article: {
+        articleId: 3,
+        title: "Helsinki design district",
+        img: { title: "Accomodation in helsinki", path: other1 },
+      },
+      videoId: "yawXq5TlgBU",
     },
     {
       id: 4,
       title: "Testing search",
       name: "sofia",
       likes: 0,
-      imgPath: require("../components/pages/topic/images/helsinki.jpg"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: helsinki,
+      userImg,
+      article: {
+        articleId: 4,
+        title: "Helsinki design district",
+        img: { title: "Accomodation in helsinki", path: scandic },
+      },
+      videoId: "yawXq5TlgBU",
     },
 
     {
@@ -43,8 +72,14 @@ export function articlesData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 0,
-      imgPath: require("../components/pages/topic/images/helsinki.jpg"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: helsinki,
+      userImg,
+      article: {
+        articleId: 5,
+        title: "Helsinki design district",
+        img: { title: "Accomodation in helsinki", path: clarion },
+      },
+      videoId: "yawXq5TlgBU",
     },
 
     {
@@ -52,8 +87,14 @@ export function articlesData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 0,
-      imgPath: require("../components/pages/topic/images/helsinki.jpg"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: helsinki,
+      userImg,
+      article: {
+        articleId: 6,
+        title: "Helsinki design district",
+        img: { title: "Accomodation in helsinki", path: helsinki },
+      },
+      videoId: "yawXq5TlgBU",
     },
 
     {
@@ -61,17 +102,29 @@ export function articlesData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 0,
-      imgPath: require("../components/pages/topic/images/helsinki.jpg"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: helsinki,
+      userImg,
+      article: {
+        articleId: 7,
+        title: "Helsinki design district",
+        img: { title: "Accomodation in helsinki", path: backPackers },
+      },
+      videoId: "yawXq5TlgBU",
     },
 
     {
       id: 8,
-      title: "Helsinki design district",
+      title: "Helsinki Museum district",
       name: "sofia",
       likes: 0,
-      imgPath: require("../components/pages/topic/images/helsinki.jpg"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: helsinki,
+      userImg,
+      article: {
+        articleId: 8,
+        title: "Helsinki Museum district",
+        img: { title: "Accomodation in helsinki", path: helsinki },
+      },
+      videoId: "yawXq5TlgBU",
     },
   ];
 }
@@ -83,32 +136,36 @@ export function videoData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/other-2.png"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: other2,
+      userImg,
+      videoId: "yawXq5TlgBU",
     },
     {
       id: 2,
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/other-2.png"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: other1,
+      userImg,
+      videoId: "X-feiUdp5Qw",
     },
     {
       id: 3,
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/other-2.png"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: other2,
+      userImg,
+      videoId: "MQSRSfnUtTo",
     },
     {
       id: 4,
       title: "Testing search",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/other-2.png"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: other1,
+      userImg,
+      videoId: "R1PxV3DgTdE",
     },
 
     {
@@ -116,8 +173,9 @@ export function videoData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/other-2.png"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: other2,
+      userImg,
+      videoId: "XCctQqXj248",
     },
 
     {
@@ -125,8 +183,9 @@ export function videoData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/other-2.png"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: other1,
+      userImg,
+      videoId: "nC5A7IK7ws8",
     },
 
     {
@@ -134,8 +193,9 @@ export function videoData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/other-2.png"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: other2,
+      userImg,
+      videoId: "wKyYwgE8Kjg",
     },
 
     {
@@ -143,8 +203,9 @@ export function videoData() {
       title: "Helsinki design district",
       name: "sofia",
       likes: 15000,
-      imgPath: require("../components/pages/topic/images/other-2.png"),
-      userImg: require("../components/pages/topic/images/user.png"),
+      imgPath: scandic,
+      userImg,
+      videoId: "paul4VqkAfU",
     },
   ];
 }
@@ -154,25 +215,29 @@ export function list() {
     {
       id: 1,
       title: "Visa issue",
-      imgPath: require("../components/pages/topic/images/other-1.png"),
+      imgPath: other1,
+      videoId: "XCctQqXj248",
     },
 
     {
       id: 2,
       title: "Atm",
-      imgPath: require("../components/pages/topic/images/other-2.png"),
+      imgPath: other2,
+      videoId: "nC5A7IK7ws8",
     },
 
     {
       id: 3,
       title: "Top hotels",
-      imgPath: require("../components/pages/topic/images/other-1.png"),
+      imgPath: other1,
+      videoId: "wKyYwgE8Kjg",
     },
 
     {
       id: 4,
       title: "Security risk",
-      imgPath: require("../components/pages/topic/images/other-2.png"),
+      imgPath: other2,
+      videoId: "paul4VqkAfU",
     },
   ];
 }

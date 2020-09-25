@@ -30,8 +30,8 @@ li {
 
 .m-list,
 .m-right li {
-  padding: 30px 5px;
-  margin: 0 10px;
+  padding: 30px 12px;
+  margin: 0 5px;
 }
 
 .m-right li {
@@ -46,6 +46,13 @@ li {
 .m-list {
   position: relative;
   font-size: 14px;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .m-list:last-child {
@@ -80,11 +87,51 @@ li {
 }
 
 .t {
-  left: -200px;
+  left: -420px;
 }
 
-.destination ul:first-child li:first-child {
-  padding-top: 35px;
+.d p {
+  width: 120px;
+}
+
+.s p {
+  width: 100px;
+}
+
+.t p {
+  width: 90px;
+}
+
+.recently {
+  padding: 35px 0 14px 0;
+}
+
+.s .recently {
+  padding-top: 12px;
+}
+
+.s input {
+  padding: 5px 30px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background: #c4c4c4;
+  color: #888888;
+  font-size: 11px;
+}
+
+.s div {
+  position: relative;
+}
+
+.bs-search {
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+}
+
+.s .bs-search {
+  color: #8888;
 }
 
 .destination ul:first-child {
@@ -93,6 +140,11 @@ li {
 
 .destination li {
   padding: 5px 0;
+  width: 110px;
+}
+
+.destination li:hover {
+  border-bottom: 1px solid #f24b6a;
 }
 
 .destination ul {
@@ -117,6 +169,12 @@ li {
 
 .sidebar-small {
   display: none;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 @media screen and (max-width: 1145px) {
@@ -171,6 +229,7 @@ li {
     font-weight: 600;
     transform: translateX(500px);
     transition: transform 0.5s;
+    padding: 10px 0;
   }
 
   .sidebar-small li {
@@ -183,6 +242,18 @@ li {
 
   .sidebar-top {
     flex-basis: 40%;
+  }
+
+  .sidebar-top li {
+    position: relative;
+  }
+
+  .sidebar-top li span:last-child {
+    margin-left: 25px;
+  }
+
+  .sidebar-top .icon {
+    left: 13px;
   }
 
   .sidebar-bottom {

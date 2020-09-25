@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import other1 from "../images/other-1.png";
+import Youtube from "react-youtube";
 import playButton from "../images/playButton.png";
+import { IconContext } from "react-icons";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { BsHeart } from "react-icons/bs";
+import { TiArrowForwardOutline } from "react-icons/ti";
+import { IoIosArrowDown } from "react-icons/io";
 import { sliceData } from "../../../../utils/sliceData";
 import { articlesData, videoData, slide } from "../../../../utils/data";
 import "./video_articles.css";
@@ -9,11 +14,25 @@ function Article() {
   const [input, setInput] = useState("");
   const [data, setData] = useState(videoData());
   const [title, setTitle] = useState("videos");
-  const [pageSize, setPageSize] = useState(4);
+  const [video, setVideo] = useState({
+    playVideo: false,
+    videoId: "",
+  });
+  const [videoSize, SetVideoSize] = useState(4);
+  const [article, setArticle] = useState([]);
+  const [articleVideo, setArticleVideo] = useState({
+    playVideo: false,
+    videoId: "",
+  });
+  const [articleSize, SetArticleSize] = useState(4);
   const [index, setIndex] = useState(0);
   const [slideShow, setSlide] = useState(slide[index]);
 
-  const slicedData = sliceData(data, 0, pageSize);
+  const slicedData = sliceData(
+    data,
+    0,
+    title === "videos" ? videoSize : articleSize
+  );
 
   const render =
     input.length > 2
@@ -46,10 +65,26 @@ function Article() {
   };
 
   const moreArticle = () => {
-    let size = pageSize + 4;
+    if (title === "videos") {
+      let size = videoSize + 4;
+      if (videoSize >= data.length) size = data.length - 4;
+      return SetVideoSize(size);
+    }
 
-    if (pageSize > data.length) size = data.length;
-    setPageSize(size);
+    let size = articleSize + 4;
+
+    if (articleSize >= data.length) size = data.length - 4;
+    SetArticleSize(size);
+  };
+
+  const moreOrLess = () => {
+    let render = "more";
+
+    if (title === "videos" && videoSize >= data.length) render = "less";
+
+    if (title === "articles" && articleSize >= data.length) render = "less";
+
+    return `${render} ${title}`;
   };
 
   const btnStyle = (a) => {
@@ -74,6 +109,58 @@ function Article() {
 
     setIndex(i);
     setSlide(slide[i]);
+  };
+
+  const onReady = (e) => {
+    e.target.pauseVideo();
+  };
+
+  const playVideo = ({ videoId }) => {
+    if (title === "videos") {
+      const newVideo = { ...video };
+      newVideo.playVideo = true;
+      newVideo.videoId = videoId;
+
+      return setVideo(newVideo);
+    }
+
+    const newVideo = { ...articleVideo };
+    newVideo.playVideo = true;
+    newVideo.videoId = videoId;
+
+    setArticleVideo(newVideo);
+  };
+
+  const closeVideo = () => {
+    if (title === "videos") {
+      const newVideo = { ...video };
+      newVideo.playVideo = false;
+      newVideo.videoId = "";
+
+      return setVideo(newVideo);
+    }
+
+    const newVideo = { ...articleVideo };
+    newVideo.playVideo = false;
+    newVideo.videoId = "";
+
+    setArticleVideo(newVideo);
+  };
+
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+    },
+  };
+
+  const showArticle = (art) => {
+    if (title === "articles") {
+      setArticle([art]);
+      setArticleVideo({ playVideo: false, videoId: "" });
+    }
   };
 
   return (
@@ -109,8 +196,23 @@ function Article() {
 
         <div className="article-card-container">
           {render.map((article) => (
-            <div className="article-card" key={article.id}>
+            <div
+              className="article-card"
+              key={article.id}
+              onClick={() => showArticle(article)}
+            >
               <img src={article.imgPath} alt={article.title} />
+              <IconContext.Provider value={{ className: "forward" }}>
+                <TiArrowForwardOutline />
+              </IconContext.Provider>
+
+              <div
+                className="play"
+                style={{ display: title === "videos" && "block" }}
+                onClick={() => playVideo(article)}
+              >
+                <img src={playButton} alt="playButton" />
+              </div>
 
               <div className="desc">
                 <p>{article.title}</p>
@@ -121,7 +223,12 @@ function Article() {
                     <p>{article.name}</p>
                   </div>
 
-                  <div className="desc-right">{articleLikes(article)}</div>
+                  <div className="desc-right">
+                    <IconContext.Provider value={{ className: "heart" }}>
+                      <BsHeart />
+                    </IconContext.Provider>
+                    {articleLikes(article)}
+                  </div>
                 </div>
               </div>
             </div>
@@ -129,47 +236,85 @@ function Article() {
         </div>
 
         <div className="more-articles" onClick={moreArticle}>
-          more {title}
+          <IconContext.Provider value={{ className: "arrow-down" }}>
+            <IoIosArrowDown />
+          </IconContext.Provider>
+          {moreOrLess()}
         </div>
 
-        <div
-          className="helsinki"
-          style={{ display: title !== "articles" && "none" }}
-        >
-          <div className="helsinki-left">
-            <img src={other1} alt="helsinki" id="helsinki" />
-
-            <div className="helsinki-desc">
-              <img src={playButton} alt="playButton" id="play" />
-              <p>Accomodation in Helsinki</p>
-            </div>
+        {title === "videos" && video.playVideo && (
+          <div className="video">
+            <span onClick={closeVideo}>
+              <IconContext.Provider value={{ className: "icon" }}>
+                <AiOutlineCloseCircle />
+              </IconContext.Provider>
+            </span>
+            <Youtube videoId={video.videoId} opts={opts} onReady={onReady} />
           </div>
-          <div className="helsinki-right">
-            <header>
-              <p>Helsinki design district</p>
-            </header>
+        )}
 
-            <div className="para">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud.
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore.
-              </p>
-            </div>
-
-            <div className="more">
-              <p>View more details</p>
-
-              <p>share this video</p>
-            </div>
+        {title === "articles" && articleVideo.playVideo && (
+          <div className="video">
+            <span onClick={closeVideo}>
+              <IconContext.Provider value={{ className: "icon" }}>
+                <AiOutlineCloseCircle />
+              </IconContext.Provider>
+            </span>
+            <Youtube
+              videoId={articleVideo.videoId}
+              opts={opts}
+              onReady={onReady}
+            />
           </div>
-        </div>
+        )}
+
+        {!articleVideo.playVideo &&
+          article.map((a) => (
+            <div
+              className="helsinki"
+              style={{ display: title !== "articles" && "none" }}
+              key={a.id}
+            >
+              <div className="helsinki-left">
+                <img src={a.article.img.path} alt="helsinki" id="helsinki" />
+
+                <div className="helsinki-desc">
+                  <span onClick={() => playVideo(a)}>
+                    <img src={playButton} alt="playButton" id="play" />
+                  </span>
+
+                  <p>{article.img}</p>
+                </div>
+              </div>
+
+              <div className="helsinki-right">
+                <header>
+                  <p>{a.article.title}</p>
+                </header>
+
+                <div className="para">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud.
+                  </p>
+
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore.
+                  </p>
+                </div>
+
+                <div className="more">
+                  <p>View more details</p>
+
+                  <p>share this video</p>
+                </div>
+              </div>
+            </div>
+          ))}
       </div>
+
       <div className="article-right">
         <div className="article-right-top">
           <div className="slide">

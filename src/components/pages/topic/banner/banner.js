@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Youtube from "react-youtube";
+import { IconContext } from "react-icons";
+import { IoMdArrowDropright } from "react-icons/io";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import playButton from "../images/playButton.png";
 import { list } from "../../../../utils/data";
 import "./banner.css";
@@ -6,6 +10,10 @@ import "./banner.css";
 function Banner() {
   const [data, setData] = useState([]);
   const [current, setCurrent] = useState("visa issue");
+  const [video, setVideo] = useState({
+    playVideo: false,
+    videoId: "",
+  });
 
   useEffect(() => {
     const init = list().filter((l) => l.id === 1);
@@ -19,6 +27,7 @@ function Banner() {
 
     setData(init);
     setCurrent(disp.innerText.toLocaleLowerCase());
+    setVideo({ playVideo: false, videoId: "" });
   };
 
   const listStyle = (desc) => {
@@ -29,9 +38,53 @@ function Banner() {
     }
   };
 
+  const onReady = (e) => {
+    e.target.pauseVideo();
+  };
+
+  const playVideo = ({ videoId }) => {
+    const newVideo = { ...video };
+    newVideo.playVideo = true;
+    newVideo.videoId = videoId;
+
+    setVideo(newVideo);
+  };
+
+  const closeVideo = () => {
+    const newVideo = { ...video };
+    newVideo.playVideo = false;
+    newVideo.videoId = "";
+
+    setVideo(newVideo);
+  };
+
+  const opts = {
+    height: "550",
+    width: "100%",
+    playerVars: {
+      autoplay: 0,
+    },
+  };
+
   return (
     <React.Fragment>
       <div className="banner">
+        <div className="banner-nav">
+          <li>
+            Landing page
+            <IconContext.Provider value={{ className: "banner-arrow" }}>
+              <IoMdArrowDropright />
+            </IconContext.Provider>
+          </li>
+          <li>
+            Helsinki
+            <IconContext.Provider value={{ className: "banner-arrow" }}>
+              <IoMdArrowDropright />
+            </IconContext.Provider>
+          </li>
+          <li>Accomodation</li>
+        </div>
+
         <div className="b-center">
           <header className="b-header">
             <p>Accomodation in Helsinki</p>
@@ -82,45 +135,65 @@ function Banner() {
         </div>
       </div>
 
-      <div className="list-item">
-        {data.map((d) => (
-          <React.Fragment key={d.id}>
-            <div className="list-left">
-              <img src={d.imgPath} alt="helsinki" id="list" />
+      {video.playVideo && (
+        <div className="video banner-video">
+          <span onClick={closeVideo}>
+            <IconContext.Provider value={{ className: "icon" }}>
+              <AiOutlineCloseCircle />
+            </IconContext.Provider>
+          </span>
+          <Youtube videoId={video.videoId} opts={opts} onReady={onReady} />
+        </div>
+      )}
 
-              <div className="list-desc">
-                <img src={playButton} alt="playButton" id="list-play" />
-                <p>Accomodation in Helsinki</p>
-              </div>
-            </div>
+      {!video.playVideo && (
+        <div className="list-item">
+          {data.map((d) => (
+            <React.Fragment key={d.id}>
+              <div className="list-left">
+                <img src={d.imgPath} alt="helsinki" id="list" />
 
-            <div className="list-right">
-              <header>
-                <p>{d.title}</p>
-              </header>
-
-              <div className="list-para">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud.
-                </p>
-
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore.
-                </p>
+                <div className="list-desc">
+                  <span onClick={() => playVideo(d)}>
+                    <img src={playButton} alt="playButton" id="list-play" />
+                  </span>
+                  <p>Accomodation in Helsinki</p>
+                </div>
               </div>
 
-              <div className="list-more">
-                <p>View more details</p>
+              <div className="list-right">
+                <header>
+                  <span>{d.title}</span>{" "}
+                  <span>
+                    <IconContext.Provider value={{ className: "icon" }}>
+                      <AiOutlineCloseCircle />
+                    </IconContext.Provider>
+                  </span>
+                </header>
 
-                <p>share this video</p>
+                <div className="list-para">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud.
+                  </p>
+
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore.
+                  </p>
+                </div>
+
+                <div className="list-more">
+                  <p>View more details</p>
+
+                  <p>share this video</p>
+                </div>
               </div>
-            </div>
-          </React.Fragment>
-        ))}
-      </div>
+            </React.Fragment>
+          ))}
+        </div>
+      )}
     </React.Fragment>
   );
 }

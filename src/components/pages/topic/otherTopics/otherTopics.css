@@ -49,4 +49,9 @@
   .other-topics-header {
     font-size: 24px;
   }
+
+  .card-items {
+    left: 40px;
+    transform: translate(0, -50%);
+  }
 }
