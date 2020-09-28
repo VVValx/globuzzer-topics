@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import { IconContext } from "react-icons";
-import { IoMdArrowDropright } from "react-icons/io";
+import { IoMdArrowDropright, IoIosArrowForward } from "react-icons/io";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { RiShareLine } from "react-icons/ri";
 import playButton from "../images/playButton.png";
 import { list } from "../../../../utils/data";
 import "./banner.css";
@@ -56,6 +57,11 @@ function Banner() {
     newVideo.videoId = "";
 
     setVideo(newVideo);
+  };
+
+  const closeList = () => {
+    setData([]);
+    setCurrent("");
   };
 
   const opts = {
@@ -164,7 +170,7 @@ function Banner() {
               <div className="list-right">
                 <header>
                   <span>{d.title}</span>{" "}
-                  <span>
+                  <span onClick={closeList}>
                     <IconContext.Provider value={{ className: "icon" }}>
                       <AiOutlineCloseCircle />
                     </IconContext.Provider>
@@ -185,9 +191,21 @@ function Banner() {
                 </div>
 
                 <div className="list-more">
-                  <p>View more details</p>
+                  <p>
+                    View more details{" "}
+                    <IconContext.Provider
+                      value={{ className: "icon arrow-right" }}
+                    >
+                      <IoIosArrowForward />
+                    </IconContext.Provider>
+                  </p>
 
-                  <p>share this video</p>
+                  <p>
+                    share this video
+                    <IconContext.Provider value={{ className: "icon share" }}>
+                      <RiShareLine />
+                    </IconContext.Provider>
+                  </p>
                 </div>
               </div>
             </React.Fragment>

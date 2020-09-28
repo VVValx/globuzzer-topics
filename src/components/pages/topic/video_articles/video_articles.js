@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import playButton from "../images/playButton.png";
 import { IconContext } from "react-icons";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { BsHeart } from "react-icons/bs";
-import { TiArrowForwardOutline } from "react-icons/ti";
-import { IoIosArrowDown } from "react-icons/io";
+import { BsHeart, BsSearch, BsHeartFill } from "react-icons/bs";
+import { TiArrowSortedDown } from "react-icons/ti";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { RiShareLine, RiShareForwardBoxFill } from "react-icons/ri";
 import { sliceData } from "../../../../utils/sliceData";
 import { articlesData, videoData, slide } from "../../../../utils/data";
 import "./video_articles.css";
@@ -18,15 +19,30 @@ function Article() {
     playVideo: false,
     videoId: "",
   });
-  const [videoSize, SetVideoSize] = useState(4);
+  const [videoSize, SetVideoSize] = useState(8);
   const [article, setArticle] = useState([]);
   const [articleVideo, setArticleVideo] = useState({
     playVideo: false,
     videoId: "",
   });
-  const [articleSize, SetArticleSize] = useState(4);
+  const [articleSize, SetArticleSize] = useState(8);
   const [index, setIndex] = useState(0);
   const [slideShow, setSlide] = useState(slide[index]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleSize);
+  }, []);
+
+  const handleSize = () => {
+    if (window.innerWidth <= 900) {
+      SetVideoSize(4);
+      SetArticleSize(4);
+      return;
+    }
+
+    SetVideoSize(8);
+    SetArticleSize(8);
+  };
 
   const slicedData = sliceData(
     data,
@@ -67,13 +83,19 @@ function Article() {
   const moreArticle = () => {
     if (title === "videos") {
       let size = videoSize + 4;
-      if (videoSize >= data.length) size = data.length - 4;
+      if (videoSize >= data.length) {
+        if (window.innerWidth <= 900) size = 4;
+        else size = 8;
+      }
       return SetVideoSize(size);
     }
 
     let size = articleSize + 4;
 
-    if (articleSize >= data.length) size = data.length - 4;
+    if (articleSize >= data.length) {
+      if (window.innerWidth <= 900) size = 4;
+      else size = 8;
+    }
     SetArticleSize(size);
   };
 
@@ -163,6 +185,17 @@ function Article() {
     }
   };
 
+  const heart = (article) => {
+    const allData = [...data];
+
+    const newArticle = allData.find((d) => d.id === article.id);
+    if (newArticle.liked) newArticle.likes -= 1;
+    else newArticle.likes += 1;
+
+    newArticle.liked = !newArticle.liked;
+    setData(allData);
+  };
+
   return (
     <section className="article">
       <div className="article-left">
@@ -196,14 +229,12 @@ function Article() {
 
         <div className="article-card-container">
           {render.map((article) => (
-            <div
-              className="article-card"
-              key={article.id}
-              onClick={() => showArticle(article)}
-            >
-              <img src={article.imgPath} alt={article.title} />
+            <div className="article-card" key={article.id}>
+              <span onClick={() => showArticle(article)}>
+                <img src={article.imgPath} alt={article.title} />
+              </span>
               <IconContext.Provider value={{ className: "forward" }}>
-                <TiArrowForwardOutline />
+                <RiShareForwardBoxFill />
               </IconContext.Provider>
 
               <div
@@ -224,9 +255,17 @@ function Article() {
                   </div>
 
                   <div className="desc-right">
-                    <IconContext.Provider value={{ className: "heart" }}>
-                      <BsHeart />
-                    </IconContext.Provider>
+                    <span onClick={() => heart(article)}>
+                      {article.liked ? (
+                        <IconContext.Provider value={{ className: "heart" }}>
+                          <BsHeartFill />
+                        </IconContext.Provider>
+                      ) : (
+                        <IconContext.Provider value={{ className: "heart" }}>
+                          <BsHeart />
+                        </IconContext.Provider>
+                      )}
+                    </span>
                     {articleLikes(article)}
                   </div>
                 </div>
@@ -290,6 +329,13 @@ function Article() {
               <div className="helsinki-right">
                 <header>
                   <p>{a.article.title}</p>
+                  <p onClick={() => setArticle([])}>
+                    <IconContext.Provider
+                      value={{ className: "icon helsinki-close" }}
+                    >
+                      <AiOutlineCloseCircle />
+                    </IconContext.Provider>
+                  </p>
                 </header>
 
                 <div className="para">
@@ -305,10 +351,24 @@ function Article() {
                   </p>
                 </div>
 
-                <div className="more">
-                  <p>View more details</p>
+                <div className="list-more list-more-article">
+                  <p>
+                    View more details{" "}
+                    <IconContext.Provider
+                      value={{ className: "icon arrow-right" }}
+                    >
+                      <IoIosArrowForward />
+                    </IconContext.Provider>
+                  </p>
 
-                  <p>share this video</p>
+                  <p>
+                    share this video
+                    <IconContext.Provider
+                      value={{ className: "icon share article-share" }}
+                    >
+                      <RiShareLine />
+                    </IconContext.Provider>
+                  </p>
                 </div>
               </div>
             </div>
@@ -344,7 +404,42 @@ function Article() {
           </div>
         </div>
 
-        <div className="article-right-bottom"></div>
+        <div className="article-right-bottom">
+          <header>What are you looking for ?</header>
+
+          <div className="article-right-form">
+            <select>
+              <option>Discover Helsinki</option>
+            </select>
+
+            <p className="form-select">
+              <IconContext.Provider value={{ className: "dropIcon" }}>
+                <TiArrowSortedDown />
+              </IconContext.Provider>
+            </p>
+          </div>
+
+          <div className="article-right-form">
+            <select>
+              <option>Topic: Accomodation</option>
+            </select>
+
+            <p className="form-select">
+              <IconContext.Provider value={{ className: "dropIcon" }}>
+                <TiArrowSortedDown />
+              </IconContext.Provider>
+            </p>
+          </div>
+
+          <div className="article-right-form">
+            <input type="text" placeholder="Search anything you want" />
+            <p className="form-search">
+              <IconContext.Provider value={{ className: "search-icon" }}>
+                <BsSearch />
+              </IconContext.Provider>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

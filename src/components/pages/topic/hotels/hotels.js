@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import _ from "lodash";
 import like from "../images/like.png";
+import { IconContext } from "react-icons";
+import { TiArrowSortedDown } from "react-icons/ti";
 import { hotels } from "../../../../utils/data";
 import "./hotels.css";
 
@@ -40,10 +42,17 @@ function Hotels() {
 
         <div>
           <select>
+            <option>Number of guests</option>
             <option>1</option>
             <option>2</option>
             <option>3+</option>
           </select>
+
+          <p className="form-select">
+            <IconContext.Provider value={{ className: "dropIcon" }}>
+              <TiArrowSortedDown />
+            </IconContext.Provider>
+          </p>
         </div>
       </div>
 
