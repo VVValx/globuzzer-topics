@@ -5,27 +5,40 @@ import { IconContext } from "react-icons";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BsHeart, BsSearch, BsHeartFill } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
-import { RiShareLine, RiShareForwardBoxFill } from "react-icons/ri";
+import {
+  IoIosArrowDown,
+  IoIosArrowUp,
+  IoIosArrowForward,
+} from "react-icons/io";
+import { RiShareForwardBoxFill } from "react-icons/ri";
+import { SiSkillshare } from "react-icons/si";
 import { sliceData } from "../../../../utils/sliceData";
 import { articlesData, videoData, slide } from "../../../../utils/data";
 import "./video_articles.css";
 
 function Article() {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(""); // for searching videos or articles
+
+  //for maps out data depending if video or article is chosen
   const [data, setData] = useState(videoData());
+
+  //for knowing whether the user is on video or articles --- initial is video
   const [title, setTitle] = useState("videos");
+
+  const [vid, setVid] = useState([]);
   const [video, setVideo] = useState({
     playVideo: false,
     videoId: "",
   });
   const [videoSize, SetVideoSize] = useState(8);
+
   const [article, setArticle] = useState([]);
   const [articleVideo, setArticleVideo] = useState({
     playVideo: false,
     videoId: "",
   });
   const [articleSize, SetArticleSize] = useState(8);
+
   const [index, setIndex] = useState(0);
   const [slideShow, setSlide] = useState(slide[index]);
 
@@ -174,14 +187,31 @@ function Article() {
     width: "100%",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 0,
+      autoplay: 1,
     },
+  };
+
+  const articleHover = (art) => {
+    if (title === "articles" && article.length > 0) {
+      setArticle([art]);
+      setArticleVideo({ playVideo: false, videoId: "" });
+    }
+
+    if (title === "videos" && vid.length > 0) {
+      setVid([art]);
+      setVideo({ playVideo: false, videoId: "" });
+    }
   };
 
   const showArticle = (art) => {
     if (title === "articles") {
       setArticle([art]);
       setArticleVideo({ playVideo: false, videoId: "" });
+    }
+
+    if (title === "videos") {
+      setVid([art]);
+      setVideo({ playVideo: false, videoId: "" });
     }
   };
 
@@ -202,7 +232,7 @@ function Article() {
         <div className="btn-group">
           <button
             className="btn btn-vid"
-            onClick={handleClick}
+            onMouseOver={handleClick}
             style={btnStyle("video")}
           >
             Video
@@ -210,7 +240,7 @@ function Article() {
 
           <button
             className="btn btn-art"
-            onClick={handleClick}
+            onMouseOver={handleClick}
             style={btnStyle("article")}
           >
             Article
@@ -229,9 +259,17 @@ function Article() {
 
         <div className="article-card-container">
           {render.map((article) => (
-            <div className="article-card" key={article.id}>
+            <div
+              className="article-card"
+              key={article.id}
+              onMouseOver={() => articleHover(article)}
+            >
               <span onClick={() => showArticle(article)}>
-                <img src={article.imgPath} alt={article.title} />
+                <img
+                  src={article.imgPath}
+                  alt={article.title}
+                  id="article-card-img"
+                />
               </span>
               <IconContext.Provider value={{ className: "forward" }}>
                 <RiShareForwardBoxFill />
@@ -240,9 +278,9 @@ function Article() {
               <div
                 className="play"
                 style={{ display: title === "videos" && "block" }}
-                onClick={() => playVideo(article)}
+                onClick={() => setVid([article])}
               >
-                <img src={playButton} alt="playButton" />
+                <img src={playButton} alt="playButton" id="playImg" />
               </div>
 
               <div className="desc">
@@ -276,7 +314,11 @@ function Article() {
 
         <div className="more-articles" onClick={moreArticle}>
           <IconContext.Provider value={{ className: "arrow-down" }}>
-            <IoIosArrowDown />
+            {moreOrLess().includes("less") ? (
+              <IoIosArrowUp />
+            ) : (
+              <IoIosArrowDown />
+            )}
           </IconContext.Provider>
           {moreOrLess()}
         </div>
@@ -307,13 +349,27 @@ function Article() {
           </div>
         )}
 
+        {!video.playVideo &&
+          title === "videos" &&
+          vid.map((v) => (
+            <div className="vid">
+              <img src={v.imgPath} alt="img" id="vidImg" />
+              <div className="playVid" onClick={() => playVideo(v)}>
+                <img src={playButton} alt="playButton" id="playVid" />
+              </div>
+
+              <div onClick={() => setVid([])}>
+                <IconContext.Provider value={{ className: " vidClose" }}>
+                  <AiOutlineCloseCircle />
+                </IconContext.Provider>
+              </div>
+            </div>
+          ))}
+
         {!articleVideo.playVideo &&
+          title === "articles" &&
           article.map((a) => (
-            <div
-              className="helsinki"
-              style={{ display: title !== "articles" && "none" }}
-              key={a.id}
-            >
+            <div className="helsinki" key={a.id}>
               <div className="helsinki-left">
                 <img src={a.article.img.path} alt="helsinki" id="helsinki" />
 
@@ -366,7 +422,7 @@ function Article() {
                     <IconContext.Provider
                       value={{ className: "icon share article-share" }}
                     >
-                      <RiShareLine />
+                      <SiSkillshare />
                     </IconContext.Provider>
                   </p>
                 </div>

@@ -33,8 +33,11 @@ function Members() {
           </p>
         </div>
 
-        <div className="details">
-          <div className="red-circle">+</div>
+        <div className="details red-detail">
+          <div className="inner-detail">
+            <div className="front">+</div>
+            <div className="back">Join us</div>
+          </div>
         </div>
 
         <div className="details ">

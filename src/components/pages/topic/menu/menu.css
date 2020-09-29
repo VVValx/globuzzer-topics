@@ -121,6 +121,7 @@ li {
 
 .s div {
   position: relative;
+  width: 200px;
 }
 
 .bs-search {

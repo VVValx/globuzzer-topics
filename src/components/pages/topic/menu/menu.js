@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import { IconContext } from "react-icons";
 import { BsSearch } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
@@ -14,6 +15,7 @@ import "./menu.css";
 function Menu() {
   const [scroll, setScroll] = useState(false);
   const [displaySidebar, setSidebar] = useState(false);
+  const [weather, setWeather] = useState({});
 
   const handleScroll = () => {
     if (window.pageYOffset > 30) return setScroll(true);
@@ -24,10 +26,25 @@ function Menu() {
     window.addEventListener("scroll", handleScroll);
 
     document.body.addEventListener("click", () => setSidebar(false));
+
+    currentTemp();
   }, []);
 
   const currentTemp = () => {
-    return 18;
+    try {
+      navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+        const lat = coords.latitude,
+          long = coords.longitude;
+        const url = `http://api.weatherstack.com/current?access_key=0ac37fc2bca524fc33aac3bbf897fdfa&query=${lat},${long}`;
+        const { data } = await Axios(url);
+
+        const temp = data.current.temperature + "°C";
+        const icon = data.current.weather_icons[0];
+        setWeather({ temp, icon });
+      });
+    } catch (error) {
+      setWeather("");
+    }
   };
 
   const navStyle = () => {
@@ -193,7 +210,8 @@ function Menu() {
 
         <ul className="m-right">
           <li>
-            <img src={icon_img} alt="weather-icon" /> {currentTemp() || " "}
+            <img src={weather.icon || icon_img} alt="weather-icon" />
+            {weather.temp}
           </li>
           <li>Log in</li>
           <li>Sign up</li>

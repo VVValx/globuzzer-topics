@@ -1,5 +1,6 @@
 .member-container {
-  margin: 80px 0;
+  margin: 80px auto;
+  width: 90%;
 }
 
 .member-header {
@@ -16,6 +17,7 @@
   margin: 10px 0;
   padding: 5px 0;
   align-items: center;
+  cursor: pointer;
 }
 
 .details header {
@@ -37,13 +39,62 @@
   font-size: 14px;
 }
 
+.details img {
+  transition: all 0.3s;
+  width: 130px;
+}
+
+.details img:hover {
+  transform: scale(1.2);
+  filter: sepia(30%);
+}
+
+.red-detail {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: #f24b6a;
+  border-radius: 100%;
+  color: #fff;
+  perspective: 1000px;
+}
+
+.inner-detail {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s;
+}
+
+.inner-detail:hover {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  font-weight: 300;
+  color: green;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
 .red-circle {
-  font-size: 80px;
+  /* font-size: 80px;
   padding: 15px 40px;
   font-weight: 300;
   border-radius: 100%;
   background: #f4627d;
-  color: #fff;
+  color: #fff; */
 }
 
 .underline {

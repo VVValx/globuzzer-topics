@@ -36,7 +36,8 @@ function Footer() {
 
         <nav className="footer-menu">
           <ul>
-            <li>Skyttevägen 29, Saltsjöbaden, Sweden</li>
+            <li>Backängsvägen 24 </li>
+            <li>192 73 Sollentuna, Sweden</li>
             <li>+46 73 555 5 134</li>
             <li>info@globuzzer.com</li>
             <li style={{ paddingTop: "50px" }}>

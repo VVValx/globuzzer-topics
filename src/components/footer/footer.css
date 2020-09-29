@@ -30,6 +30,10 @@
   margin-top: 35px;
 }
 
+.own-right button:hover {
+  filter: brightness(110%);
+}
+
 .footer {
   background: #f24b6a;
   padding: 10px 30px;
@@ -48,6 +52,16 @@
 .footer-menu li {
   padding: 5px 0;
   font-size: 13px;
+}
+
+.footer-menu img {
+  width: 29px;
+  height: 29px;
+}
+
+.footer-menu img:hover {
+  filter: brightness(110%);
+  cursor: pointer;
 }
 
 .footer-small {

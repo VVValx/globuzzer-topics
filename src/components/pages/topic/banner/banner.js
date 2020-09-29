@@ -3,7 +3,10 @@ import Youtube from "react-youtube";
 import { IconContext } from "react-icons";
 import { IoMdArrowDropright, IoIosArrowForward } from "react-icons/io";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { RiShareLine } from "react-icons/ri";
+import { SiSkillshare, SiAdguard } from "react-icons/si";
+import { RiHotelLine } from "react-icons/ri";
+import { BiDollarCircle } from "react-icons/bi";
+import { VscGlobe } from "react-icons/vsc";
 import playButton from "../images/playButton.png";
 import { list } from "../../../../utils/data";
 import "./banner.css";
@@ -21,13 +24,13 @@ function Banner() {
     setData(init);
   }, []);
 
-  const changeList = ({ target: disp }) => {
+  const changeList = (currentList) => {
     const init = list().filter(
-      (l) => l.title.toLocaleLowerCase() === disp.innerText.toLocaleLowerCase()
+      (l) => l.title.toLocaleLowerCase() === currentList
     );
 
     setData(init);
-    setCurrent(disp.innerText.toLocaleLowerCase());
+    setCurrent(currentList);
     setVideo({ playVideo: false, videoId: "" });
   };
 
@@ -113,31 +116,51 @@ function Banner() {
       <div className="list">
         <div
           className="list-flex"
-          onClick={changeList}
+          onMouseOver={() => changeList("visa issue")}
           style={listStyle("visa issue")}
         >
-          Visa issue
+          <span>
+            <IconContext.Provider value={{ className: "list-icon globe" }}>
+              <VscGlobe />
+            </IconContext.Provider>
+          </span>
+          <span>Visa issue</span>
         </div>
         <div
           className="list-flex"
-          onClick={changeList}
+          onMouseOver={() => changeList("atm")}
           style={listStyle("atm")}
         >
-          Atm
+          <span>
+            <IconContext.Provider value={{ className: "list-icon" }}>
+              <BiDollarCircle />
+            </IconContext.Provider>
+          </span>
+          <span>Visa issue</span>
         </div>
         <div
           className="list-flex"
-          onClick={changeList}
+          onMouseOver={() => changeList("top hotels")}
           style={listStyle("top hotels")}
         >
-          Top hotels
+          <span>
+            <IconContext.Provider value={{ className: "list-icon" }}>
+              <RiHotelLine />
+            </IconContext.Provider>
+          </span>
+          <span>Top hotels</span>
         </div>
         <div
           className="list-flex"
-          onClick={changeList}
+          onMouseOver={() => changeList("security risk")}
           style={listStyle("security risk")}
         >
-          Security risk
+          <span>
+            <IconContext.Provider value={{ className: "list-icon" }}>
+              <SiAdguard />
+            </IconContext.Provider>
+          </span>
+          <span>Security risk</span>
         </div>
       </div>
 
@@ -203,7 +226,7 @@ function Banner() {
                   <p>
                     share this video
                     <IconContext.Provider value={{ className: "icon share" }}>
-                      <RiShareLine />
+                      <SiSkillshare />
                     </IconContext.Provider>
                   </p>
                 </div>

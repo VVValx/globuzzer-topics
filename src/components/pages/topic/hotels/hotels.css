@@ -44,7 +44,7 @@
 
 .check select {
   padding: 10px 8px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .hotel-flex {
@@ -107,6 +107,7 @@
   gap: 10px;
   flex-basis: 81%;
   margin-right: 15px;
+  cursor: pointer;
 }
 
 .hotel-items {
@@ -114,6 +115,13 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  transition: transform 0.3s;
+}
+
+.hotel-items:hover {
+  transform: scale(1.03);
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .hotel-items:nth-child(3),
