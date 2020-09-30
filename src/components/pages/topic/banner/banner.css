@@ -142,7 +142,7 @@
   height: 0;
   position: absolute;
   background: #fff;
-  width: 480px;
+  width: 100%;
   text-align: left;
   left: 0;
   transition: height 0.5s;
@@ -388,7 +388,6 @@
   }
 
   .select-person nav {
-    width: 350px;
     top: 123%;
   }
 
@@ -432,7 +431,6 @@
 
   .select-person nav {
     top: 100%;
-    width: 232px;
   }
 
   .select-person li {

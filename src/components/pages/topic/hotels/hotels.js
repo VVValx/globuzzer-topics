@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import _ from "lodash";
 import like from "../images/like.png";
 import { IconContext } from "react-icons";
+import { IoIosArrowDown } from "react-icons/io";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { hotels } from "../../../../utils/data";
 import "./hotels.css";
 
 function Hotels() {
   const [data] = useState(hotels);
+  const [select, setSelect] = useState("");
+  const [showList, setShowList] = useState(false);
 
   const hotelPrice = (price) => {
     let string = "€";
@@ -17,6 +20,15 @@ function Hotels() {
     if (price >= 80) string = string.repeat(4);
 
     return string;
+  };
+
+  const handleSelect = () => {
+    setShowList(!showList);
+  };
+
+  const handleList = (e) => {
+    setSelect(e.target.innerText);
+    setShowList(false);
   };
 
   return (
@@ -41,15 +53,31 @@ function Hotels() {
         </div>
 
         <div>
-          <select>
-            <option>Number of guests</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3+</option>
-          </select>
+          <span>
+            <input
+              type="text"
+              placeholder="Number of guests"
+              value={select}
+              readOnly={true}
+              onClick={handleSelect}
+            />
+
+            <nav style={{ height: showList && "89px" }}>
+              <ul>
+                <li onClick={handleList}>1</li>
+                <li onClick={handleList}>2</li>
+                <li onClick={handleList}>3+</li>
+              </ul>
+            </nav>
+          </span>
 
           <p className="form-select">
-            <IconContext.Provider value={{ className: "dropIcon" }}>
+            <IconContext.Provider
+              value={{
+                className: "dropIcon",
+                style: { transform: showList && "rotate(180deg)" },
+              }}
+            >
               <TiArrowSortedDown />
             </IconContext.Provider>
           </p>
