@@ -9,6 +9,7 @@ function City({ history, match }) {
 
   useEffect(() => {
     setCity();
+    // eslint-disable-next-line
   }, []);
 
   const setCity = () => {

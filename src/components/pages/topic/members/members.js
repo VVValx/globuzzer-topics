@@ -33,10 +33,14 @@ function Members() {
           </p>
         </div>
 
-        <div className="details red-detail">
-          <div className="inner-detail">
-            <div className="front">+</div>
-            <div className="back">Join us</div>
+        <div className="details big-circle">
+          <div className="inner-circle">
+            <div className="front">
+              <p>+</p>
+            </div>
+            <div className="back">
+              <p>Join us</p>
+            </div>
           </div>
         </div>
 
@@ -61,6 +65,7 @@ function Members() {
         </div>
       </div>
 
+      {/* For screens less than or equal to 900px*/}
       <div className="member-details small-screen">
         <div className="details">
           <img src={blueWoman} alt="blueWoman" />

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import _ from "lodash";
 import like from "../images/like.png";
 import { IconContext } from "react-icons";
-import { IoIosArrowDown } from "react-icons/io";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { hotels } from "../../../../utils/data";
 import "./hotels.css";
