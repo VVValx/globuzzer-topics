@@ -16,3 +16,12 @@ button {
 select {
   -webkit-appearance: none;
 }
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+button:hover {
+  filter: brightness(130%);
+}

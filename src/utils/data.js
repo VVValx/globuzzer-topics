@@ -6,365 +6,364 @@ import other1 from "../components/pages/topic/images/other-1.png";
 import other2 from "../components/pages/topic/images/other-2.png";
 import userImg from "../components/pages/topic/images/user.png";
 import mask from "../components/pages/topic/images/mask.png";
+import london from "../components/pages/topic/images/london.png";
+import lisbon from "../components/pages/topic/images/lisbon.png";
+import screenshot1 from "../components/pages/topic/images/screenshot1.png";
+import screenshot2 from "../components/pages/topic/images/screenshot2.png";
+import screenshot3 from "../components/pages/topic/images/screenshot3.png";
 
-export function articlesData() {
-  return [
-    {
-      id: 1,
+export const articlesData = [
+  {
+    id: 1,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 1,
       title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 1,
-        title: "Helsinki design district",
-        img: { title: "Accomodation in helsinki", path: helsinki },
-      },
-
-      videoId: "yawXq5TlgBU",
-    },
-    {
-      id: 2,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 2,
-        title: "Helsinki design district",
-        img: { title: "Accomodation in helsinki", path: other2 },
-      },
-      videoId: "yawXq5TlgBU",
-    },
-    {
-      id: 3,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 3,
-        title: "Helsinki design district",
-        img: { title: "Accomodation in helsinki", path: other1 },
-      },
-      videoId: "yawXq5TlgBU",
-    },
-    {
-      id: 4,
-      title: "Testing search",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 4,
-        title: "Helsinki design district",
-        img: { title: "Accomodation in helsinki", path: scandic },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: helsinki },
     },
 
-    {
-      id: 5,
+    videoId: "yawXq5TlgBU",
+  },
+  {
+    id: 2,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 2,
       title: "Helsinki design district",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 5,
-        title: "Helsinki design district",
-        img: { title: "Accomodation in helsinki", path: clarion },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: other2 },
     },
-
-    {
-      id: 6,
+    videoId: "yawXq5TlgBU",
+  },
+  {
+    id: 3,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 3,
       title: "Helsinki design district",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 6,
-        title: "Helsinki design district",
-        img: { title: "Accomodation in helsinki", path: helsinki },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: other1 },
     },
-
-    {
-      id: 7,
+    videoId: "yawXq5TlgBU",
+  },
+  {
+    id: 4,
+    title: "Testing search",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 4,
       title: "Helsinki design district",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 7,
-        title: "Helsinki design district",
-        img: { title: "Accomodation in helsinki", path: backPackers },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: scandic },
     },
+    videoId: "yawXq5TlgBU",
+  },
 
-    {
-      id: 8,
+  {
+    id: 5,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 5,
+      title: "Helsinki design district",
+      img: { title: "Accomodation in helsinki", path: clarion },
+    },
+    videoId: "yawXq5TlgBU",
+  },
+
+  {
+    id: 6,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 6,
+      title: "Helsinki design district",
+      img: { title: "Accomodation in helsinki", path: helsinki },
+    },
+    videoId: "yawXq5TlgBU",
+  },
+
+  {
+    id: 7,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 7,
+      title: "Helsinki design district",
+      img: { title: "Accomodation in helsinki", path: backPackers },
+    },
+    videoId: "yawXq5TlgBU",
+  },
+
+  {
+    id: 8,
+    title: "Helsinki Museum district",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 8,
       title: "Helsinki Museum district",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 8,
-        title: "Helsinki Museum district",
-        img: { title: "Accomodation in helsinki", path: helsinki },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: helsinki },
     },
+    videoId: "yawXq5TlgBU",
+  },
 
-    {
-      id: 9,
+  {
+    id: 9,
+    title: "Helsinki Museum district",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 9,
       title: "Helsinki Museum district",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 9,
-        title: "Helsinki Museum district",
-        img: { title: "Accomodation in helsinki", path: helsinki },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: helsinki },
     },
+    videoId: "yawXq5TlgBU",
+  },
 
-    {
-      id: 10,
+  {
+    id: 10,
+    title: "Helsinki Museum district",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 10,
       title: "Helsinki Museum district",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 10,
-        title: "Helsinki Museum district",
-        img: { title: "Accomodation in helsinki", path: helsinki },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: helsinki },
     },
+    videoId: "yawXq5TlgBU",
+  },
 
-    {
-      id: 11,
+  {
+    id: 11,
+    title: "Helsinki Museum district",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 11,
       title: "Helsinki Museum district",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 11,
-        title: "Helsinki Museum district",
-        img: { title: "Accomodation in helsinki", path: helsinki },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: helsinki },
     },
+    videoId: "yawXq5TlgBU",
+  },
 
-    {
-      id: 12,
+  {
+    id: 12,
+    title: "Helsinki Museum district",
+    name: "sofia",
+    likes: 0,
+    liked: false,
+    imgPath: helsinki,
+    userImg,
+    article: {
+      articleId: 12,
       title: "Helsinki Museum district",
-      name: "sofia",
-      likes: 0,
-      liked: false,
-      imgPath: helsinki,
-      userImg,
-      article: {
-        articleId: 12,
-        title: "Helsinki Museum district",
-        img: { title: "Accomodation in helsinki", path: helsinki },
-      },
-      videoId: "yawXq5TlgBU",
+      img: { title: "Accomodation in helsinki", path: helsinki },
     },
-  ];
-}
+    videoId: "yawXq5TlgBU",
+  },
+];
 
-export function videoData() {
-  return [
-    {
-      id: 1,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other2,
-      userImg,
-      videoId: "yawXq5TlgBU",
-    },
-    {
-      id: 2,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other1,
-      userImg,
-      videoId: "X-feiUdp5Qw",
-    },
-    {
-      id: 3,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other2,
-      userImg,
-      videoId: "MQSRSfnUtTo",
-    },
-    {
-      id: 4,
-      title: "Testing search",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other1,
-      userImg,
-      videoId: "R1PxV3DgTdE",
-    },
+export const videoData = [
+  {
+    id: 1,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other2,
+    userImg,
+    videoId: "yawXq5TlgBU",
+  },
+  {
+    id: 2,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other1,
+    userImg,
+    videoId: "X-feiUdp5Qw",
+  },
+  {
+    id: 3,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other2,
+    userImg,
+    videoId: "MQSRSfnUtTo",
+  },
+  {
+    id: 4,
+    title: "Testing search",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other1,
+    userImg,
+    videoId: "R1PxV3DgTdE",
+  },
 
-    {
-      id: 5,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other2,
-      userImg,
-      videoId: "XCctQqXj248",
-    },
+  {
+    id: 5,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other2,
+    userImg,
+    videoId: "XCctQqXj248",
+  },
 
-    {
-      id: 6,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other1,
-      userImg,
-      videoId: "nC5A7IK7ws8",
-    },
+  {
+    id: 6,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other1,
+    userImg,
+    videoId: "nC5A7IK7ws8",
+  },
 
-    {
-      id: 7,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other2,
-      userImg,
-      videoId: "wKyYwgE8Kjg",
-    },
+  {
+    id: 7,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other2,
+    userImg,
+    videoId: "wKyYwgE8Kjg",
+  },
 
-    {
-      id: 8,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: scandic,
-      userImg,
-      videoId: "paul4VqkAfU",
-    },
+  {
+    id: 8,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: scandic,
+    userImg,
+    videoId: "paul4VqkAfU",
+  },
 
-    {
-      id: 9,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other1,
-      userImg,
-      videoId: "nC5A7IK7ws8",
-    },
+  {
+    id: 9,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other1,
+    userImg,
+    videoId: "nC5A7IK7ws8",
+  },
 
-    {
-      id: 10,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other2,
-      userImg,
-      videoId: "wKyYwgE8Kjg",
-    },
+  {
+    id: 10,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other2,
+    userImg,
+    videoId: "wKyYwgE8Kjg",
+  },
 
-    {
-      id: 11,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: scandic,
-      userImg,
-      videoId: "paul4VqkAfU",
-    },
+  {
+    id: 11,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: scandic,
+    userImg,
+    videoId: "paul4VqkAfU",
+  },
 
-    {
-      id: 12,
-      title: "Helsinki design district",
-      name: "sofia",
-      likes: 15000,
-      liked: false,
-      imgPath: other1,
-      userImg,
-      videoId: "nC5A7IK7ws8",
-    },
-  ];
-}
+  {
+    id: 12,
+    title: "Helsinki design district",
+    name: "sofia",
+    likes: 15000,
+    liked: false,
+    imgPath: other1,
+    userImg,
+    videoId: "nC5A7IK7ws8",
+  },
+];
 
-export function list() {
-  return [
-    {
-      id: 1,
-      title: "Visa issue",
-      imgPath: other1,
-      videoId: "XCctQqXj248",
-    },
+export const list = [
+  {
+    id: 1,
+    title: "Visa issue",
+    imgPath: other1,
+    videoId: "XCctQqXj248",
+  },
 
-    {
-      id: 2,
-      title: "Atm",
-      imgPath: other2,
-      videoId: "nC5A7IK7ws8",
-    },
+  {
+    id: 2,
+    title: "Atm",
+    imgPath: other2,
+    videoId: "nC5A7IK7ws8",
+  },
 
-    {
-      id: 3,
-      title: "Top hotels",
-      imgPath: other1,
-      videoId: "wKyYwgE8Kjg",
-    },
+  {
+    id: 3,
+    title: "Top hotels",
+    imgPath: other1,
+    videoId: "wKyYwgE8Kjg",
+  },
 
-    {
-      id: 4,
-      title: "Security risk",
-      imgPath: other2,
-      videoId: "paul4VqkAfU",
-    },
-  ];
-}
+  {
+    id: 4,
+    title: "Security risk",
+    imgPath: other2,
+    videoId: "paul4VqkAfU",
+  },
+];
 
 export const hotels = [
   {
@@ -440,5 +439,168 @@ export const slide = [
     id: 3,
     img: mask,
     description: "Attractions in Helsinki",
+  },
+];
+
+export const city = [
+  {
+    id: 1,
+    name: "Rome",
+    members: 2803,
+    img: lisbon,
+    details: [
+      {
+        id: 1,
+        title: "free lancing packages",
+        img: screenshot1,
+      },
+      {
+        id: 2,
+        title: "free lancing packages",
+        img: screenshot2,
+      },
+      {
+        id: 3,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+      {
+        id: 4,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+      {
+        id: 5,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "London",
+    members: 2206,
+    img: london,
+    details: [
+      {
+        id: 1,
+        title: "free lancing packages",
+        img: screenshot1,
+      },
+      {
+        id: 2,
+        title: "free lancing packages",
+        img: screenshot2,
+      },
+      {
+        id: 3,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+      {
+        id: 4,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+      {
+        id: 5,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Lisbon",
+    members: 1803,
+    img: lisbon,
+    details: [
+      {
+        id: 1,
+        title: "free lancing packages",
+        img: screenshot1,
+      },
+      {
+        id: 2,
+        title: "free lancing packages",
+        img: screenshot2,
+      },
+      {
+        id: 3,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+      {
+        id: 4,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+      {
+        id: 5,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Paris",
+    members: 3500,
+    img: london,
+    details: [
+      {
+        id: 1,
+        title: "free lancing packages",
+        img: screenshot1,
+      },
+      {
+        id: 2,
+        title: "free lancing packages",
+        img: screenshot2,
+      },
+      {
+        id: 3,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+      {
+        id: 4,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+      {
+        id: 5,
+        title: "free lancing packages",
+        img: screenshot3,
+      },
+    ],
+  },
+];
+
+export const stockholm = [
+  {
+    id: 1,
+    title: "free lancing packages",
+    img: screenshot1,
+  },
+  {
+    id: 2,
+    title: "free lancing packages",
+    img: screenshot2,
+  },
+  {
+    id: 3,
+    title: "free lancing packages",
+    img: screenshot3,
+  },
+  {
+    id: 4,
+    title: "free lancing packages",
+    img: screenshot3,
+  },
+  {
+    id: 5,
+    title: "free lancing packages",
+    img: screenshot3,
   },
 ];

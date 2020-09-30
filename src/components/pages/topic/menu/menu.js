@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { BsSearch } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
@@ -205,7 +206,7 @@ function Menu() {
           </li>
 
           <li className="m-list">Pricing</li>
-          <li className="m-list">Own your own city section</li>
+          <li className="m-list menuOwn">Own your own city section</li>
         </ul>
 
         <ul className="m-right">
@@ -214,7 +215,11 @@ function Menu() {
             {weather.temp}
           </li>
           <li>Log in</li>
-          <li>Sign up</li>
+          <li>
+            <Link to="/cities" className="link">
+              Sign up
+            </Link>
+          </li>
         </ul>
       </nav>
 

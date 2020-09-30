@@ -112,13 +112,54 @@
   animation: person 1s ease-in;
 }
 
-.b-center select {
-  padding: 10px 30px;
+.select-person span {
+  margin: 0 7px;
+}
+
+.select-person span:last-child {
+  position: relative;
+}
+
+.select-person input {
+  width: 480px;
+  vertical-align: middle;
   border-radius: 10px;
-  width: 524px;
-  border: none;
-  color: #a6acaf;
-  font-size: 18px;
+  padding: 10px 0 10px 30px;
+  color: #2f2f2f;
+  font-size: 21px;
+}
+
+.arrowDown {
+  position: absolute;
+  right: 10%;
+  color: #2f2f2f;
+  font-size: 20px;
+  top: 44%;
+  transition: transform 0.5s;
+}
+
+.select-person nav {
+  height: 0;
+  position: absolute;
+  background: #fff;
+  width: 480px;
+  text-align: left;
+  left: 0;
+  transition: height 0.5s;
+  overflow: hidden;
+  top: 97%;
+  border-radius: 10px;
+}
+
+.select-person li {
+  font-size: 21px;
+  color: #2f2f2f;
+  padding: 8px 0 8px 30px;
+}
+
+.select-person li:hover {
+  background: #f24b6a;
+  color: #fff;
 }
 
 .video.banner-video {
@@ -336,9 +377,23 @@
     font-size: 24px;
   }
 
-  .b-center select {
-    width: 232px;
-    font-size: 9px;
+  .select-person input {
+    width: 350px;
+    font-size: 14px;
+  }
+
+  .arrowDown {
+    font-size: 15px;
+    top: 40%;
+  }
+
+  .select-person nav {
+    width: 350px;
+    top: 123%;
+  }
+
+  .select-person li {
+    font-size: 14px;
   }
 
   .b-header p:first-child {
@@ -363,6 +418,25 @@
   .banner-arrow {
     width: 18px;
     height: 18px;
+  }
+
+  .select-person input {
+    width: 232px;
+
+    font-size: 9px;
+  }
+
+  .arrowDown {
+    font-size: 10px;
+  }
+
+  .select-person nav {
+    top: 100%;
+    width: 232px;
+  }
+
+  .select-person li {
+    font-size: 9px;
   }
 
   .list-right {

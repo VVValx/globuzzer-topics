@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import { IconContext } from "react-icons";
-import { IoMdArrowDropright, IoIosArrowForward } from "react-icons/io";
+import {
+  IoMdArrowDropright,
+  IoIosArrowForward,
+  IoIosArrowDown,
+} from "react-icons/io";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { SiSkillshare, SiAdguard } from "react-icons/si";
 import { RiHotelLine } from "react-icons/ri";
@@ -19,13 +23,17 @@ function Banner() {
     videoId: "",
   });
 
+  const [select, setSelect] = useState("");
+
+  const [showList, setShowList] = useState(false);
+
   useEffect(() => {
-    const init = list().filter((l) => l.id === 1);
+    const init = list.filter((l) => l.id === 1);
     setData(init);
   }, []);
 
   const changeList = (currentList) => {
-    const init = list().filter(
+    const init = list.filter(
       (l) => l.title.toLocaleLowerCase() === currentList
     );
 
@@ -75,6 +83,15 @@ function Banner() {
     },
   };
 
+  const handleSelect = () => {
+    setShowList(!showList);
+  };
+
+  const handleList = (e) => {
+    setSelect(e.target.innerText);
+    setShowList(false);
+  };
+
   return (
     <React.Fragment>
       <div className="banner">
@@ -102,14 +119,39 @@ function Banner() {
 
           <button>Join us</button>
 
-          <p className="select-person">
-            I am a{" "}
-            <select>
-              <option>Person who will stay for a long term</option>
-              <option>Person who will stay for a short term</option>
-              <option>Person who is a student</option>
-            </select>
-          </p>
+          <div className="select-person">
+            <span>I am a</span>
+            <span>
+              <input
+                type="text"
+                placeholder="Person who will stay for a long term"
+                value={select}
+                readOnly={true}
+                onClick={handleSelect}
+              />
+
+              <IconContext.Provider
+                value={{
+                  className: "arrowDown",
+                  style: { transform: showList && "rotate(180deg)" },
+                }}
+              >
+                <IoIosArrowDown />
+              </IconContext.Provider>
+
+              <nav style={{ height: showList && "126px" }}>
+                <ul>
+                  <li onClick={handleList}>
+                    Person who will stay for a long term
+                  </li>
+                  <li onClick={handleList}>
+                    Person who will stay for a short term
+                  </li>
+                  <li onClick={handleList}>Person who is a student</li>
+                </ul>
+              </nav>
+            </span>
+          </div>
         </div>
       </div>
 

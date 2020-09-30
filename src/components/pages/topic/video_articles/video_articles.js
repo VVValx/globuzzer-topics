@@ -19,8 +19,8 @@ import "./video_articles.css";
 function Article() {
   const [input, setInput] = useState(""); // for searching videos or articles
 
-  //for maps out data depending if video or article is chosen
-  const [data, setData] = useState(videoData());
+  //for mapping out data depending if video or article is chosen
+  const [data, setData] = useState(videoData);
 
   //for knowing whether the user is on video or articles --- initial is video
   const [title, setTitle] = useState("videos");
@@ -85,10 +85,10 @@ function Article() {
 
   const handleClick = ({ target: btn }) => {
     if (btn.innerText.toLocaleLowerCase() === "video") {
-      setData(videoData());
+      setData(videoData);
       setTitle("videos");
     } else {
-      setData(articlesData());
+      setData(articlesData);
       setTitle("articles");
     }
   };
