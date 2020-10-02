@@ -172,18 +172,18 @@
   color: #555555;
   font-size: 18px;
   cursor: pointer;
-  position: relative;
   width: 200px;
   margin: 0 auto;
 }
 
+.more-articles p:last-child {
+  display: none;
+}
+
 .arrow-down {
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
   font-size: 24px;
   color: #555555;
+  vertical-align: middle;
 }
 
 .vid {
@@ -428,6 +428,25 @@ input {
   color: #fff;
 }
 
+@media screen and (min-width: 900px) and (max-width: 1102px) {
+  .article {
+    background: red;
+  }
+
+  .helsinki-right header {
+    font-size: 19px;
+  }
+
+  .list-more-article {
+    display: block;
+    padding: 0;
+  }
+
+  .list-more-article p:first-child {
+    margin-bottom: 15px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .article {
     display: flex;
@@ -472,5 +491,41 @@ input {
 
   .arrow-down {
     color: #f24b6a;
+  }
+}
+
+@media screen and (min-width: 515px) and (max-width: 899px) {
+  .article-card {
+    position: relative;
+  }
+  .desc header {
+    position: absolute;
+    bottom: 35%;
+    left: 10%;
+    color: #fff;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 514px) {
+  .btn {
+    margin: 5px 10px;
+  }
+
+  .search input {
+    width: 100%;
+  }
+
+  .more-articles p:first-child {
+    display: none;
+  }
+
+  .more-articles p:last-child {
+    display: block;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .arrow-down {
+    font-size: 18px;
   }
 }

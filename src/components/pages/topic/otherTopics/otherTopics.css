@@ -64,3 +64,21 @@
     transform: translate(0, -50%);
   }
 }
+
+@media screen and (max-width: 550px) {
+  .card:nth-child(n + 4) {
+    display: none;
+  }
+
+  .card-container {
+    display: block;
+  }
+
+  .other-topics {
+    margin-bottom: 0;
+  }
+
+  .card {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+}

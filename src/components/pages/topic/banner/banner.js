@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Youtube from "react-youtube";
 import { IconContext } from "react-icons";
 import {
@@ -117,7 +118,9 @@ function Banner() {
             <p>Explore different kinds of information</p>
           </header>
 
-          <button>Join us</button>
+          <Link to="/cities" className="link">
+            <button>Join us</button>
+          </Link>
 
           <div className="select-person">
             <span>I am a</span>

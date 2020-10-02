@@ -301,7 +301,12 @@ function Menu() {
 
           <div className="sidebar-auth">
             <li>Login</li>
-            <li>Signup</li>
+
+            <li>
+              <Link to="/cities" className="link">
+                Signup
+              </Link>
+            </li>
           </div>
         </ul>
       </nav>

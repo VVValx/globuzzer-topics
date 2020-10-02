@@ -31,7 +31,7 @@ function Cities({ history }) {
   const cityFilter = () => {
     const searchValue = search.toLowerCase();
     const cityFilter =
-      search.length > 2
+      search.length > 0
         ? cities.filter(
             (city) =>
               city.name.toLocaleLowerCase().startsWith(searchValue) ||
@@ -45,12 +45,13 @@ function Cities({ history }) {
 
   return (
     <div className="city-container">
-      <div className="goBack" onClick={() => history.goBack()}>
+      <div className="cityBack" onClick={() => history.goBack()}>
         <IconContext.Provider value={{ className: "backIcon" }}>
           <IoIosArrowDropleft />
         </IconContext.Provider>
         <span>Back</span>
       </div>
+
       <div className="city-content">
         <header>
           <span>Choose cities you like</span>

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import playButton from "../images/playButton.png";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
+import mask from "../images/mask.png";
 import { IconContext } from "react-icons";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BsHeart, BsSearch, BsHeartFill } from "react-icons/bs";
@@ -13,7 +17,7 @@ import {
 import { RiShareForwardBoxFill } from "react-icons/ri";
 import { SiSkillshare } from "react-icons/si";
 import { sliceData } from "../../../../utils/sliceData";
-import { articlesData, videoData, slide } from "../../../../utils/data";
+import { articlesData, videoData } from "../../../../utils/data";
 import "./video_articles.css";
 
 function Article() {
@@ -39,15 +43,19 @@ function Article() {
   });
   const [articleSize, SetArticleSize] = useState(8);
 
-  const [index, setIndex] = useState(0);
-  const [slideShow, setSlide] = useState(slide[index]);
+  // const [slideShow, setSlide] = useState(slide);
 
   useEffect(() => {
     window.addEventListener("resize", handleSize);
+
+    if (window.innerWidth <= 768) {
+      SetVideoSize(4);
+      SetArticleSize(4);
+    }
   }, []);
 
   const handleSize = () => {
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 768) {
       SetVideoSize(4);
       SetArticleSize(4);
       return;
@@ -56,6 +64,16 @@ function Article() {
     SetVideoSize(8);
     SetArticleSize(8);
   };
+
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 3000,
+  // };
 
   const slicedData = sliceData(
     data,
@@ -136,16 +154,6 @@ function Article() {
     }
   };
 
-  const handleSlide = () => {
-    let i = index;
-
-    if (i === 2) i = 0;
-    else i += 1;
-
-    setIndex(i);
-    setSlide(slide[i]);
-  };
-
   const onReady = (e) => {
     e.target.pauseVideo();
   };
@@ -204,15 +212,38 @@ function Article() {
   };
 
   const showArticle = (art) => {
+    const width = window.innerWidth;
     if (title === "articles") {
       setArticle([art]);
       setArticleVideo({ playVideo: false, videoId: "" });
+      if (width <= 500) SetArticleSize(1);
+      if (width >= 517 && width < 774) SetArticleSize(2);
+      if (width >= 774 && width < 900) SetArticleSize(3);
+      if (width >= 900 && width < 1014) SetArticleSize(2);
+      if (width >= 1014 && width < 1344) SetArticleSize(3);
+      if (width >= 1344) SetArticleSize(4);
     }
 
     if (title === "videos") {
       setVid([art]);
       setVideo({ playVideo: false, videoId: "" });
+      if (width <= 500) SetVideoSize(1);
+      if ((width >= 517) & (width < 774)) SetVideoSize(2);
+      if (width >= 774 && width < 900) SetVideoSize(3);
+      if (width >= 1014 && width < 1344) SetVideoSize(3);
+      if (width >= 1344) SetVideoSize(4);
     }
+  };
+
+  const closeArticle = () => {
+    window.innerWidth <= 768 ? SetArticleSize(4) : SetArticleSize(8);
+    setArticle([]);
+  };
+
+  const closeVid = () => {
+    window.innerWidth <= 768 ? SetVideoSize(4) : SetVideoSize(8);
+    if (window.innerWidth <= 515) SetVideoSize(4);
+    setVid([]);
   };
 
   const heart = (article) => {
@@ -278,13 +309,13 @@ function Article() {
               <div
                 className="play"
                 style={{ display: title === "videos" && "block" }}
-                onClick={() => setVid([article])}
+                onClick={() => showArticle(article)}
               >
                 <img src={playButton} alt="playButton" id="playImg" />
               </div>
 
               <div className="desc">
-                <p>{article.title}</p>
+                <header>{article.title}</header>
 
                 <div className="desc-items">
                   <div className="desc-left">
@@ -310,17 +341,6 @@ function Article() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="more-articles" onClick={moreArticle}>
-          <IconContext.Provider value={{ className: "arrow-down" }}>
-            {moreOrLess().includes("less") ? (
-              <IoIosArrowUp />
-            ) : (
-              <IoIosArrowDown />
-            )}
-          </IconContext.Provider>
-          {moreOrLess()}
         </div>
 
         {title === "videos" && video.playVideo && (
@@ -358,7 +378,7 @@ function Article() {
                 <img src={playButton} alt="playButton" id="playVid" />
               </div>
 
-              <div onClick={() => setVid([])}>
+              <div onClick={closeVid}>
                 <IconContext.Provider value={{ className: " vidClose" }}>
                   <AiOutlineCloseCircle />
                 </IconContext.Provider>
@@ -385,7 +405,7 @@ function Article() {
               <div className="helsinki-right">
                 <header>
                   <p>{a.article.title}</p>
-                  <p onClick={() => setArticle([])}>
+                  <p onClick={closeArticle}>
                     <IconContext.Provider
                       value={{ className: "icon helsinki-close" }}
                     >
@@ -429,17 +449,37 @@ function Article() {
               </div>
             </div>
           ))}
+
+        <div className="more-articles" onClick={moreArticle}>
+          <p>
+            <IconContext.Provider value={{ className: "arrow-down" }}>
+              {moreOrLess().includes("less") ? (
+                <IoIosArrowUp />
+              ) : (
+                <IoIosArrowDown />
+              )}
+            </IconContext.Provider>
+            {moreOrLess()}
+          </p>
+
+          <p>
+            see more{" "}
+            <IconContext.Provider value={{ className: "arrow-down" }}>
+              <IoIosArrowDown />
+            </IconContext.Provider>
+          </p>
+        </div>
       </div>
 
       <div className="article-right">
         <div className="article-right-top">
           <div className="slide">
-            <img src={slideShow.img} alt="mask" />
-            <p>{slideShow.description}</p>
+            <img src={mask} alt="mask" />
+            <p>Google launched a coronavirus</p>
           </div>
 
           <div className="slide-dots">
-            <div onClick={handleSlide}></div>
+            <div></div>
             <div></div>
             <div></div>
           </div>

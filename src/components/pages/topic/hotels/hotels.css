@@ -215,20 +215,19 @@
   margin-top: 10px;
 }
 
-.hotel-header-small {
-  display: none;
+.more-hotel {
+  color: #f24b6a;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 30px;
+  cursor: pointer;
 }
 
-@keyframes hotel {
-  0% {
-    opacity: 0;
-    transform: translateX(-200px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.hotel-arrow {
+  margin-left: 5px;
+  vertical-align: middle;
 }
 
 @media screen and (max-width: 900px) {
@@ -247,14 +246,6 @@
 
   .hotel-list {
     margin: 0;
-  }
-
-  .hotel-header {
-    display: none;
-  }
-  .hotel-header-small {
-    display: block;
-    font-size: 24px;
   }
 
   .check input,

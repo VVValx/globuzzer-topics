@@ -1,15 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import like from "../images/like.png";
 import { IconContext } from "react-icons";
 import { TiArrowSortedDown } from "react-icons/ti";
+import { IoIosArrowDown } from "react-icons/io";
 import { hotels } from "../../../../utils/data";
+import { sliceData } from "../../../../utils/sliceData";
 import "./hotels.css";
 
 function Hotels() {
   const [data] = useState(hotels);
   const [select, setSelect] = useState("");
   const [showList, setShowList] = useState(false);
+  const [tabletSize, setTabletSize] = useState(false);
+  const [hotelSize, setHotelSize] = useState(data.length);
+
+  useEffect(() => {
+    window.addEventListener("resize", changeHotelSize);
+
+    if (window.innerWidth <= 515) {
+      setHotelSize(5);
+      setTabletSize(true);
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  //slice hotel when screen is less than 769px
+  const changeHotelSize = () => {
+    if (window.innerWidth <= 515) {
+      setHotelSize(5);
+      setTabletSize(true);
+      return;
+    }
+    setHotelSize(data.length);
+    setTabletSize(false);
+  };
+
+  const hotelSliced = sliceData(data, 0, hotelSize);
 
   const hotelPrice = (price) => {
     let string = "€";
@@ -33,12 +60,7 @@ function Hotels() {
   return (
     <section className="hotel">
       <header className="hotel-header">
-        find suitable hotels
-        <div className="underline"></div>
-      </header>
-
-      <header className="hotel-header hotel-header-small">
-        Hotels {`&`} hostels
+        {window.innerWidth <= 515 ? "Hotels & hostels" : "find suitable hotels"}
         <div className="underline"></div>
       </header>
 
@@ -48,7 +70,7 @@ function Hotels() {
         </div>
 
         <div>
-          <input type="date" placeholder="Check-out" />
+          <input type="date" placeholder="515Check-out" />
         </div>
 
         <div>
@@ -85,7 +107,7 @@ function Hotels() {
 
       <div className="hotel-flex">
         <div className="hotel-list">
-          {data.map((d) => (
+          {hotelSliced.map((d) => (
             <div className="hotel-items" key={d.id}>
               <div className="hotel-left">
                 <img src={d.img} alt={d.title} />
@@ -108,6 +130,20 @@ function Hotels() {
             </div>
           ))}
         </div>
+
+        {/* shows only when screen is in tablet and mobile devices */}
+        {tabletSize && (
+          <div className="more-hotel" onClick={() => setHotelSize(data.length)}>
+            see more
+            <IconContext.Provider
+              value={{
+                className: "hotel-arrow",
+              }}
+            >
+              <IoIosArrowDown />
+            </IconContext.Provider>
+          </div>
+        )}
 
         <div className="vimeo">
           <div className="vimeo-content">

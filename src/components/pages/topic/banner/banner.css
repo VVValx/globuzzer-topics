@@ -368,6 +368,16 @@
   }
 }
 
+@media screen and (min-width: 1250px) {
+  .list-right {
+    padding: 50px 60px;
+  }
+
+  .list-more {
+    margin-top: 50px;
+  }
+}
+
 @media screen and (max-width: 1100px) {
   .b-center {
     width: 90%;
@@ -439,5 +449,19 @@
 
   .list-right {
     padding: 20px 30px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 550px) {
+  .list-icon {
+    font-size: 35px;
+  }
+
+  .list-flex span:last-child {
+    font-size: 11px;
+  }
+
+  .list-flex span {
+    margin: 0;
   }
 }

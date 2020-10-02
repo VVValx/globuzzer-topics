@@ -9,7 +9,7 @@ import mask from "../components/pages/topic/images/mask.png";
 import london from "../components/pages/topic/images/london.png";
 import lisbon from "../components/pages/topic/images/lisbon.png";
 import screenshot1 from "../components/pages/topic/images/screenshot1.png";
-import screenshot2 from "../components/pages/topic/images/screenshot2.png";
+// import screenshot2 from "../components/pages/topic/images/screenshot2.png";
 import screenshot3 from "../components/pages/topic/images/screenshot3.png";
 
 export const articlesData = [
@@ -451,27 +451,27 @@ export const city = [
     details: [
       {
         id: 1,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot1,
       },
       {
         id: 2,
-        title: "free lancing packages",
-        img: screenshot2,
+        title: "free relocating packages",
+        img: screenshot1,
       },
       {
         id: 3,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
       {
         id: 4,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
       {
         id: 5,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
     ],
@@ -484,27 +484,27 @@ export const city = [
     details: [
       {
         id: 1,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot1,
       },
       {
         id: 2,
-        title: "free lancing packages",
-        img: screenshot2,
+        title: "free relocating packages",
+        img: screenshot1,
       },
       {
         id: 3,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
       {
         id: 4,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
       {
         id: 5,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
     ],
@@ -517,27 +517,27 @@ export const city = [
     details: [
       {
         id: 1,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot1,
       },
       {
         id: 2,
-        title: "free lancing packages",
-        img: screenshot2,
+        title: "free relocating packages",
+        img: screenshot1,
       },
       {
         id: 3,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
       {
         id: 4,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
       {
         id: 5,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
     ],
@@ -550,57 +550,29 @@ export const city = [
     details: [
       {
         id: 1,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot1,
       },
       {
         id: 2,
-        title: "free lancing packages",
-        img: screenshot2,
+        title: "free relocating packages",
+        img: screenshot1,
       },
       {
         id: 3,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
       {
         id: 4,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
       {
         id: 5,
-        title: "free lancing packages",
+        title: "free relocating packages",
         img: screenshot3,
       },
     ],
-  },
-];
-
-export const stockholm = [
-  {
-    id: 1,
-    title: "free lancing packages",
-    img: screenshot1,
-  },
-  {
-    id: 2,
-    title: "free lancing packages",
-    img: screenshot2,
-  },
-  {
-    id: 3,
-    title: "free lancing packages",
-    img: screenshot3,
-  },
-  {
-    id: 4,
-    title: "free lancing packages",
-    img: screenshot3,
-  },
-  {
-    id: 5,
-    title: "free lancing packages",
-    img: screenshot3,
   },
 ];

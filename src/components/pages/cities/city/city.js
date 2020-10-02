@@ -31,7 +31,7 @@ function City({ history, match }) {
       <div className="city_content">
         <header>
           <p>
-            $20 per month{" "}
+            <span>$20 per month </span>
             <span className="city_name">for {match.params.city}</span>
           </p>
         </header>
@@ -40,8 +40,10 @@ function City({ history, match }) {
           {data.map((city) => (
             <div className="city_card" key={city.id}>
               <img src={city.img} alt="city" />
+
               <div className="city_center">
-                <p>{city.title}</p>
+                <p>Free relocating</p>
+                <p>Packages</p>
               </div>
             </div>
           ))}
