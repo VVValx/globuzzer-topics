@@ -438,7 +438,8 @@ export const slide = [
   {
     id: 3,
     img: mask,
-    description: "Attractions in Helsinki",
+    description:
+      "Stay in and stop the spread of Covid19. Wash your hands properly",
   },
 ];
 

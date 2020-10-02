@@ -259,3 +259,9 @@
     padding: 8px 12px;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .hotel-list {
+    display: block;
+  }
+}

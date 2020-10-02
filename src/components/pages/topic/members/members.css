@@ -167,3 +167,18 @@
     margin: 0 10px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .member-details-flex .details {
+    margin: 0px;
+  }
+
+  .details img {
+    width: 70px;
+  }
+
+  .red-circle {
+    font-size: 50px;
+    padding: 7px 24px;
+  }
+}

@@ -5,7 +5,7 @@
 }
 .article-left {
   text-align: center;
-  flex-basis: 78%;
+  width: 78%;
 }
 
 .btn-group {
@@ -20,7 +20,6 @@
   font-size: 24px;
   font-weight: 600;
   position: relative;
-  border: 1px solid #f24b6a;
   width: 141px;
   height: 52px;
   margin: 0 25px;
@@ -43,12 +42,11 @@
   width: 50%;
   padding: 10px 12px;
   border-radius: 20px;
-}
-
-#search_input::placeholder {
+  background: #f9fbfb;
+  color: #888888;
   opacity: 70%;
   font-size: 18px;
-  color: #888888;
+  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2);
 }
 
 .article-card-container {
@@ -128,18 +126,14 @@
 }
 
 .desc-right {
-  position: relative;
-  width: 50px;
+  width: 30%;
   text-align: right;
 }
 
 .heart {
-  color: red;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  color: #f24b6a;
   font-size: 20px;
+  vertical-align: middle;
 }
 
 .desc-left p {
@@ -297,18 +291,13 @@
 }
 
 .article-right {
-  flex-basis: 22%;
+  width: 22%;
   margin-left: 25px;
 }
 
 .slide {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.slide-dots {
-  text-align: center;
-  margin: 15px auto;
-  width: 100px;
+  background: #f9fbfb;
+  height: 100%;
 }
 
 .slide-dots div {
@@ -429,10 +418,6 @@ input {
 }
 
 @media screen and (min-width: 900px) and (max-width: 1102px) {
-  .article {
-    background: red;
-  }
-
   .helsinki-right header {
     font-size: 19px;
   }
@@ -449,8 +434,11 @@ input {
 
 @media screen and (max-width: 900px) {
   .article {
-    display: flex;
-    flex-direction: column;
+    display: block;
+  }
+
+  .article-left {
+    width: 100%;
   }
 
   .article-right {
@@ -506,7 +494,7 @@ input {
   }
 }
 
-@media screen and (min-width: 0) and (max-width: 514px) {
+@media screen and (max-width: 514px) {
   .btn {
     margin: 5px 10px;
   }
@@ -527,5 +515,9 @@ input {
 
   .arrow-down {
     font-size: 18px;
+  }
+
+  .article-right {
+    width: 90%;
   }
 }

@@ -1,5 +1,5 @@
 .banner {
-  height: 100vh;
+  height: 90vh;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/hotel.jpg");
@@ -463,5 +463,17 @@
 
   .list-flex span {
     margin: 0;
+  }
+
+  .list-more {
+    display: block;
+  }
+
+  .list-more p:last-child {
+    margin-top: 10px;
+  }
+
+  .list-para p {
+    font-size: 12px;
   }
 }

@@ -297,7 +297,13 @@ li {
 }
 
 @media screen and (max-width: 480px) {
-  .bars {
-    width: 80px;
+  .menu-small li {
+    display: inline-block;
+  }
+
+  .logo {
+    text-align: left;
+    margin-left: 0%;
+    transform: translateX(0);
   }
 }

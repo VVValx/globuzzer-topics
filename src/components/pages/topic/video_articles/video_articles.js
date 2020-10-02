@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Youtube from "react-youtube";
 import playButton from "../images/playButton.png";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-// import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import mask from "../images/mask.png";
 import { IconContext } from "react-icons";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -17,7 +17,7 @@ import {
 import { RiShareForwardBoxFill } from "react-icons/ri";
 import { SiSkillshare } from "react-icons/si";
 import { sliceData } from "../../../../utils/sliceData";
-import { articlesData, videoData } from "../../../../utils/data";
+import { articlesData, videoData, slide } from "../../../../utils/data";
 import "./video_articles.css";
 
 function Article() {
@@ -43,7 +43,7 @@ function Article() {
   });
   const [articleSize, SetArticleSize] = useState(8);
 
-  // const [slideShow, setSlide] = useState(slide);
+  const [slideShow] = useState(slide);
 
   useEffect(() => {
     window.addEventListener("resize", handleSize);
@@ -65,15 +65,15 @@ function Article() {
     SetArticleSize(8);
   };
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   autoplay: true,
-  //   autoplaySpeed: 3000,
-  // };
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
 
   const slicedData = sliceData(
     data,
@@ -93,11 +93,11 @@ function Article() {
 
   const articleLikes = ({ likes }) => {
     if (likes < 1) return "";
-    if (likes > 999)
-      return likes % 1000 === 0
-        ? `${likes / 1000}k`
-        : `${(likes / 1000).toFixed(1)}k`;
-
+    if (likes > 999) {
+      const render = likes % 1000;
+      if (render > 99) return `${(likes / 1000).toFixed(1)}k`;
+      return `${(likes / 1000).toFixed(0)}k`;
+    }
     return likes;
   };
 
@@ -473,16 +473,14 @@ function Article() {
 
       <div className="article-right">
         <div className="article-right-top">
-          <div className="slide">
-            <img src={mask} alt="mask" />
-            <p>Google launched a coronavirus</p>
-          </div>
-
-          <div className="slide-dots">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <Slider {...settings}>
+            {slideShow.map((s) => (
+              <div className="slide">
+                <img src={s.img} alt="mask" />
+                <p>{s.description}</p>
+              </div>
+            ))}
+          </Slider>
         </div>
 
         <div className=" g-vimeo">

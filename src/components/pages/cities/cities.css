@@ -54,7 +54,7 @@
 
 .city-search {
   position: absolute;
-  left: 0;
+  left: 4%;
   top: 50%;
   transform: translateY(-50%);
   color: #888888;
@@ -153,7 +153,7 @@
   }
 }
 
-@media screen and (min-width: 901px) and (max-width: 1133px) {
+@media screen and (min-width: 901px) and (max-width: 1134px) {
   .cities {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -193,31 +193,7 @@
   }
 }
 
-@media screen and (max-width: 660px) {
-  .city-content span {
-    margin-top: 10px;
-  }
-}
-
-@media screen and (max-width: 651px) {
-  .city-content header input {
-    margin-top: 20px;
-    width: 65%;
-  }
-}
-
-@media screen and (max-width: 558px) {
-  .cities {
-    margin: 20px 0;
-    padding: 25px 0;
-  }
-
-  .city-btn {
-    margin-top: 10px;
-  }
-}
-
-@media screen and (min-width: 0) and (max-width: 557px) {
+@media screen and (min-width: 0) and (max-width: 380px) {
   .city-container {
     position: static;
     height: auto;
@@ -239,18 +215,6 @@
     margin-top: 20px;
   }
 
-  .city-content span {
-    display: block;
-  }
-
-  .city-content span :last-child {
-    margin-top: 0;
-  }
-
-  .city-search {
-    left: 20%;
-  }
-
   .city-content input {
     width: 300px;
   }
@@ -258,5 +222,30 @@
   .city-btn {
     text-align: center;
     padding-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 650px) {
+  .cities {
+    margin: 5px 0;
+  }
+  .city-content header {
+    display: block;
+  }
+
+  .city-content input {
+    width: 100%;
+  }
+
+  .city-content span {
+    display: block;
+  }
+
+  .city-content span:last-child {
+    margin-top: 8px;
+  }
+
+  .city-search {
+    left: 2%;
   }
 }

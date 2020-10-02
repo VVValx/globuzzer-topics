@@ -43,10 +43,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
+  width: 95%;
 }
 
 .card-items-top {
   font-size: 18px;
+  font-weight: bold;
 }
 
 .card-items-bottom {
