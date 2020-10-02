@@ -4,7 +4,6 @@ import playButton from "../images/playButton.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import mask from "../images/mask.png";
 import { IconContext } from "react-icons";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BsHeart, BsSearch, BsHeartFill } from "react-icons/bs";
@@ -475,7 +474,7 @@ function Article() {
         <div className="article-right-top">
           <Slider {...settings}>
             {slideShow.map((s) => (
-              <div className="slide">
+              <div className="slide" key={s.id}>
                 <img src={s.img} alt="mask" />
                 <p>{s.description}</p>
               </div>

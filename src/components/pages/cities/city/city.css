@@ -129,7 +129,7 @@
   }
 }
 
-@media screen and (min-width: 0) and (max-width: 557px) {
+@media screen and (min-width: 0) and (max-width: 380px) {
   .city_container {
     position: static;
     height: auto;

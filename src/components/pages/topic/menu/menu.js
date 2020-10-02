@@ -36,7 +36,7 @@ function Menu() {
       navigator.geolocation.getCurrentPosition(async ({ coords }) => {
         const lat = coords.latitude,
           long = coords.longitude;
-        const url = `http://api.weatherstack.com/current?access_key=0ac37fc2bca524fc33aac3bbf897fdfa&query=${lat},${long}`;
+        const url = `http://api.weatherstack.com/current?access_key=0ac37fc2bca524fc33aac3bbf897fdfa&query=${long},${lat}`;
         const { data } = await Axios(url);
 
         const temp = data.current.temperature + "°C";
