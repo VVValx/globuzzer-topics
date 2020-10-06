@@ -1,5 +1,5 @@
 .banner {
-  height: 90vh;
+  height: 85vh;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../images/hotel.jpg");
@@ -452,7 +452,7 @@
   }
 }
 
-@media screen and (min-width: 0) and (max-width: 550px) {
+@media screen and (max-width: 500px) {
   .list-icon {
     font-size: 35px;
   }
@@ -465,15 +465,17 @@
     margin: 0;
   }
 
-  .list-more {
-    display: block;
-  }
-
   .list-more p:last-child {
     margin-top: 10px;
   }
 
   .list-para p {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .list-more {
+    display: block;
   }
 }

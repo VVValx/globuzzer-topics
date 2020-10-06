@@ -43,7 +43,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
-  width: 95%;
 }
 
 .card-items-top {
@@ -60,11 +59,6 @@
   .other-topics-header {
     font-size: 24px;
   }
-
-  .card-items {
-    left: 40px;
-    transform: translate(0, -50%);
-  }
 }
 
 @media screen and (max-width: 550px) {
@@ -74,6 +68,11 @@
 
   .card-container {
     display: block;
+  }
+
+  .card-items {
+    left: 7%;
+    transform: translate(0, -50%);
   }
 
   .other-topics {

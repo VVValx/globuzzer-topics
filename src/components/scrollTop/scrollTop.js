@@ -7,7 +7,7 @@ function ScrollTop() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-  });
+  }, []);
 
   const handleScroll = () => {
     if (window.pageYOffset > 100) return setDisplay(true);

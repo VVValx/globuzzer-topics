@@ -42,7 +42,6 @@
   width: 50%;
   padding: 10px 12px;
   border-radius: 20px;
-  background: #f9fbfb;
   color: #888888;
   opacity: 70%;
   font-size: 18px;
@@ -85,6 +84,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 100%;
 }
 
 .play:hover {
@@ -500,7 +500,10 @@ input {
   }
 
   .search input {
-    width: 100%;
+    width: 90%;
+    border-radius: 5px;
+    padding: 6px 12px;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
   }
 
   .more-articles p:first-child {

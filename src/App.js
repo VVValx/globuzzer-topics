@@ -5,7 +5,7 @@ import Cities from "./components/pages/cities/cities";
 import City from "./components/pages/cities/city/city";
 import NotFound from "./components/pages/404/404";
 import ScrollTop from "./components/scrollTop/scrollTop";
-import ScrollTo from "./components/pages/scrollTo/scrollTo";
+
 import "./App.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Switch>
         <Route path="/cities" exact component={Cities} />
         <Route path="/cities/:city" exact component={City} />
-        <Route path="/scroll" exact component={ScrollTo} />
+
         <Route path="/" exact component={Topic} />
         <Route path="/notFound" component={NotFound} />
         <Redirect to="/notFound" />

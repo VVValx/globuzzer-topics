@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import Youtube from "react-youtube";
 import playButton from "../images/playButton.png";
 import "slick-carousel/slick/slick.css";
@@ -17,32 +17,31 @@ import { RiShareForwardBoxFill } from "react-icons/ri";
 import { SiSkillshare } from "react-icons/si";
 import { sliceData } from "../../../../utils/sliceData";
 import { articlesData, videoData, slide } from "../../../../utils/data";
+import { articleRefContext } from "../../../../contexts/refs";
 import "./video_articles.css";
 
 function Article() {
   const [input, setInput] = useState(""); // for searching videos or articles
-
   //for mapping out data depending if video or article is chosen
   const [data, setData] = useState(videoData);
-
   //for knowing whether the user is on video or articles --- initial is video
   const [title, setTitle] = useState("videos");
-
   const [vid, setVid] = useState([]);
   const [video, setVideo] = useState({
     playVideo: false,
     videoId: "",
   });
   const [videoSize, SetVideoSize] = useState(8);
-
   const [article, setArticle] = useState([]);
   const [articleVideo, setArticleVideo] = useState({
     playVideo: false,
     videoId: "",
   });
   const [articleSize, SetArticleSize] = useState(8);
-
   const [slideShow] = useState(slide);
+
+  const articleRef = useContext(articleRefContext);
+  const artRef = useRef(null);
 
   useEffect(() => {
     window.addEventListener("resize", handleSize);
@@ -255,9 +254,8 @@ function Article() {
     newArticle.liked = !newArticle.liked;
     setData(allData);
   };
-
   return (
-    <section className="article">
+    <section className="article" ref={articleRef}>
       <div className="article-left">
         <div className="btn-group">
           <button
@@ -293,6 +291,7 @@ function Article() {
               className="article-card"
               key={article.id}
               onMouseOver={() => articleHover(article)}
+              ref={artRef}
             >
               <span onClick={() => showArticle(article)}>
                 <img
@@ -308,7 +307,7 @@ function Article() {
               <div
                 className="play"
                 style={{ display: title === "videos" && "block" }}
-                onClick={() => showArticle(article)}
+                onClick={() => setArticle(article)}
               >
                 <img src={playButton} alt="playButton" id="playImg" />
               </div>
@@ -342,6 +341,23 @@ function Article() {
           ))}
         </div>
 
+        {!video.playVideo &&
+          title === "videos" &&
+          vid.map((v) => (
+            <div className="vid">
+              <img src={v.imgPath} alt="img" id="vidImg" />
+              <div className="playVid" onClick={() => playVideo(v)}>
+                <img src={playButton} alt="playButton" id="playVid" />
+              </div>
+
+              <div onClick={closeVid}>
+                <IconContext.Provider value={{ className: " vidClose" }}>
+                  <AiOutlineCloseCircle />
+                </IconContext.Provider>
+              </div>
+            </div>
+          ))}
+
         {title === "videos" && video.playVideo && (
           <div className="video">
             <span onClick={closeVideo}>
@@ -367,23 +383,6 @@ function Article() {
             />
           </div>
         )}
-
-        {!video.playVideo &&
-          title === "videos" &&
-          vid.map((v) => (
-            <div className="vid">
-              <img src={v.imgPath} alt="img" id="vidImg" />
-              <div className="playVid" onClick={() => playVideo(v)}>
-                <img src={playButton} alt="playButton" id="playVid" />
-              </div>
-
-              <div onClick={closeVid}>
-                <IconContext.Provider value={{ className: " vidClose" }}>
-                  <AiOutlineCloseCircle />
-                </IconContext.Provider>
-              </div>
-            </div>
-          ))}
 
         {!articleVideo.playVideo &&
           title === "articles" &&

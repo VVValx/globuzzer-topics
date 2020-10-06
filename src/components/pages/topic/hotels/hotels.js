@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import _ from "lodash";
 import like from "../images/like.png";
 import { IconContext } from "react-icons";
@@ -7,6 +7,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { hotels } from "../../../../utils/data";
 import { sliceData } from "../../../../utils/sliceData";
 import "./hotels.css";
+import { hotelRefContext } from "../../../../contexts/refs";
 
 function Hotels() {
   const [data] = useState(hotels);
@@ -14,6 +15,8 @@ function Hotels() {
   const [showList, setShowList] = useState(false);
   const [tabletSize, setTabletSize] = useState(false);
   const [hotelSize, setHotelSize] = useState(data.length);
+
+  const hotelRef = useContext(hotelRefContext);
 
   useEffect(() => {
     window.addEventListener("resize", changeHotelSize);
@@ -58,7 +61,7 @@ function Hotels() {
   };
 
   return (
-    <section className="hotel">
+    <section className="hotel" ref={hotelRef}>
       <header className="hotel-header">
         {window.innerWidth <= 515 ? "Hotels & hostels" : "find suitable hotels"}
         <div className="underline"></div>

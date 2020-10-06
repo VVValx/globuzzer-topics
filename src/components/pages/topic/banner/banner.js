@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Youtube from "react-youtube";
 import { IconContext } from "react-icons";
@@ -9,11 +9,12 @@ import {
 } from "react-icons/io";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { SiSkillshare, SiAdguard } from "react-icons/si";
-import { RiHotelLine } from "react-icons/ri";
+import { RiHotelLine, RiShareForwardBoxFill } from "react-icons/ri";
 import { BiDollarCircle } from "react-icons/bi";
 import { VscGlobe } from "react-icons/vsc";
 import playButton from "../images/playButton.png";
 import { list } from "../../../../utils/data";
+import { hotelRefContext, articleRefContext } from "../../../../contexts/refs";
 import "./banner.css";
 
 function Banner() {
@@ -23,15 +24,33 @@ function Banner() {
     playVideo: false,
     videoId: "",
   });
-
   const [select, setSelect] = useState("");
-
   const [showList, setShowList] = useState(false);
 
+  const hotelRef = useContext(hotelRefContext);
+  const articleRef = useContext(articleRefContext);
+
+  //for loading in banner list (loads in visa issue on page load)
   useEffect(() => {
     const init = list.filter((l) => l.id === 1);
     setData(init);
   }, []);
+
+  useEffect(() => {
+    if (select.includes("short"))
+      return window.scrollTo({
+        top: hotelRef.current.offsetTop,
+        behavior: "smooth",
+      });
+
+    if (select.includes("long") || select.includes("student"))
+      return window.scrollTo({
+        top: articleRef.current.offsetTop,
+        behavior: "smooth",
+      });
+
+    //eslint-disable-next-line
+  }, [select]);
 
   const changeList = (currentList) => {
     const init = list.filter(
@@ -233,6 +252,10 @@ function Banner() {
                   </span>
                   <p>Accomodation in Helsinki</p>
                 </div>
+
+                <IconContext.Provider value={{ className: "forward" }}>
+                  <RiShareForwardBoxFill />
+                </IconContext.Provider>
               </div>
 
               <div className="list-right">
