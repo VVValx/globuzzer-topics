@@ -486,12 +486,6 @@ input {
   .article-card {
     position: relative;
   }
-  .desc header {
-    position: absolute;
-    bottom: 35%;
-    left: 10%;
-    color: #fff;
-  }
 }
 
 @media screen and (max-width: 514px) {
@@ -522,5 +516,12 @@ input {
 
   .article-right {
     width: 90%;
+  }
+
+  .desc header {
+    position: absolute;
+    bottom: 35%;
+    left: 10%;
+    color: #fff;
   }
 }

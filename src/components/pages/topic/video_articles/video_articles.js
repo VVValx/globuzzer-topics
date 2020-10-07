@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
+import ArticleCard from "./article_card";
 import Youtube from "react-youtube";
 import playButton from "../images/playButton.png";
 import "slick-carousel/slick/slick.css";
@@ -6,14 +7,13 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { IconContext } from "react-icons";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { BsHeart, BsSearch, BsHeartFill } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { TiArrowSortedDown } from "react-icons/ti";
 import {
   IoIosArrowDown,
   IoIosArrowUp,
   IoIosArrowForward,
 } from "react-icons/io";
-import { RiShareForwardBoxFill } from "react-icons/ri";
 import { SiSkillshare } from "react-icons/si";
 import { sliceData } from "../../../../utils/sliceData";
 import { articlesData, videoData, slide } from "../../../../utils/data";
@@ -26,33 +26,60 @@ function Article() {
   const [data, setData] = useState(videoData);
   //for knowing whether the user is on video or articles --- initial is video
   const [title, setTitle] = useState("videos");
+  //for checking row size when slicing
+  const [rowSize, setRowSize] = useState(null);
+  //All videos state
   const [vid, setVid] = useState([]);
   const [video, setVideo] = useState({
     playVideo: false,
     videoId: "",
   });
   const [videoSize, SetVideoSize] = useState(8);
+  const [firstVideos, setFirstVideos] = useState([]);
+  const [secondVideos, setSecondVideos] = useState([]);
+  //All article states
   const [article, setArticle] = useState([]);
   const [articleVideo, setArticleVideo] = useState({
     playVideo: false,
     videoId: "",
   });
   const [articleSize, SetArticleSize] = useState(8);
+  const [firstArticles, setFirstArticles] = useState([]);
+  const [secondArticles, setSecondArticles] = useState([]);
+  //slideshow state
   const [slideShow] = useState(slide);
-
+  //section video_articles ref
   const articleRef = useContext(articleRefContext);
   const artRef = useRef(null);
 
   useEffect(() => {
+    const width = window.innerWidth;
     window.addEventListener("resize", handleSize);
 
-    if (window.innerWidth <= 768) {
+    if (width <= 768) {
       SetVideoSize(4);
       SetArticleSize(4);
     }
+
+    //setting rowSize on load
+    if (width <= 500) setRowSize(1);
+    if (width >= 517 && width < 774) setRowSize(2);
+    if (width >= 774 && width < 900) setRowSize(3);
+    if (width >= 900 && width < 1014) setRowSize(2);
+    if (width >= 1014 && width < 1344) setRowSize(3);
+    if (width >= 1344) setRowSize(4);
   }, []);
 
   const handleSize = () => {
+    //setting rowSize while resized
+    const width = window.innerWidth;
+    if (width <= 500) setRowSize(1);
+    if (width >= 517 && width < 774) setRowSize(2);
+    if (width >= 774 && width < 900) setRowSize(3);
+    if (width >= 900 && width < 1014) setRowSize(2);
+    if (width >= 1014 && width < 1344) setRowSize(3);
+    if (width >= 1344) setRowSize(4);
+
     if (window.innerWidth <= 768) {
       SetVideoSize(4);
       SetArticleSize(4);
@@ -197,6 +224,28 @@ function Article() {
     },
   };
 
+  const originalData = () => {
+    const renderData = (
+      <ArticleCard
+        render={render}
+        artRef={artRef}
+        articleHover={articleHover}
+        showArticle={showArticle}
+        setArticle={setArticle}
+        playButton={playButton}
+        title={title}
+        heart={heart}
+        articleLikes={articleLikes}
+      />
+    );
+
+    if (title === "videos") {
+      if (firstVideos.length < 1) return renderData;
+    } else {
+      if (firstArticles.length < 1) return renderData;
+    }
+  };
+
   const articleHover = (art) => {
     if (title === "articles" && article.length > 0) {
       setArticle([art]);
@@ -209,39 +258,73 @@ function Article() {
     }
   };
 
-  const showArticle = (art) => {
-    const width = window.innerWidth;
-    if (title === "articles") {
-      setArticle([art]);
-      setArticleVideo({ playVideo: false, videoId: "" });
-      if (width <= 500) SetArticleSize(1);
-      if (width >= 517 && width < 774) SetArticleSize(2);
-      if (width >= 774 && width < 900) SetArticleSize(3);
-      if (width >= 900 && width < 1014) SetArticleSize(2);
-      if (width >= 1014 && width < 1344) SetArticleSize(3);
-      if (width >= 1344) SetArticleSize(4);
+  const showArticle = (art, index) => {
+    const arts = [...render];
+    let newArts, secondArts;
+
+    let newIndex = index + 1;
+    let k = rowSize;
+    if (newIndex > rowSize) {
+      if (newIndex % rowSize === 0) {
+        k = newIndex;
+      } else {
+        k = Math.floor(newIndex / rowSize) * rowSize + rowSize;
+      }
     }
+    newArts = arts.slice(0, k);
+    secondArts = arts.slice(k);
 
     if (title === "videos") {
+      if (firstVideos.length > 0) {
+        const i = arts.indexOf(art);
+        if (i > rowSize) {
+          if (i % rowSize === 0) {
+            k = i;
+          } else {
+            k = Math.floor(i / rowSize) * rowSize + rowSize;
+          }
+        }
+        newArts = arts.slice(0, k);
+        secondArts = arts.slice(k);
+      }
+      setFirstVideos(newArts);
+      setSecondVideos(secondArts);
       setVid([art]);
       setVideo({ playVideo: false, videoId: "" });
-      if (width <= 500) SetVideoSize(1);
-      if ((width >= 517) & (width < 774)) SetVideoSize(2);
-      if (width >= 774 && width < 900) SetVideoSize(3);
-      if (width >= 1014 && width < 1344) SetVideoSize(3);
-      if (width >= 1344) SetVideoSize(4);
+      return;
     }
+
+    if (firstArticles.length > 0) {
+      const i = arts.indexOf(art);
+      if (i > rowSize) {
+        if (i % rowSize === 0) {
+          k = i;
+        } else {
+          k = Math.floor(i / rowSize) * rowSize + rowSize;
+        }
+      }
+      newArts = arts.slice(0, k);
+      secondArts = arts.slice(k);
+    }
+    setFirstArticles(newArts);
+    setSecondArticles(secondArts);
+    setArticle([art]);
+    setArticleVideo({ playVideo: false, videoId: "" });
   };
 
   const closeArticle = () => {
     window.innerWidth <= 768 ? SetArticleSize(4) : SetArticleSize(8);
     setArticle([]);
+    setFirstArticles([]);
+    setSecondArticles([]);
   };
 
   const closeVid = () => {
     window.innerWidth <= 768 ? SetVideoSize(4) : SetVideoSize(8);
     if (window.innerWidth <= 515) SetVideoSize(4);
     setVid([]);
+    setFirstVideos([]);
+    setSecondVideos([]);
   };
 
   const heart = (article) => {
@@ -285,66 +368,28 @@ function Article() {
           />
         </div>
 
+        {/* original data */}
+        <div className="article-card-container">{originalData()}</div>
+
+        {/*Fist Articles after click */}
         <div className="article-card-container">
-          {render.map((article) => (
-            <div
-              className="article-card"
-              key={article.id}
-              onMouseOver={() => articleHover(article)}
-              ref={artRef}
-            >
-              <span onClick={() => showArticle(article)}>
-                <img
-                  src={article.imgPath}
-                  alt={article.title}
-                  id="article-card-img"
-                />
-              </span>
-              <IconContext.Provider value={{ className: "forward" }}>
-                <RiShareForwardBoxFill />
-              </IconContext.Provider>
-
-              <div
-                className="play"
-                style={{ display: title === "videos" && "block" }}
-                onClick={() => setArticle(article)}
-              >
-                <img src={playButton} alt="playButton" id="playImg" />
-              </div>
-
-              <div className="desc">
-                <header>{article.title}</header>
-
-                <div className="desc-items">
-                  <div className="desc-left">
-                    <img src={article.userImg} alt={article.title} />
-                    <p>{article.name}</p>
-                  </div>
-
-                  <div className="desc-right">
-                    <span onClick={() => heart(article)}>
-                      {article.liked ? (
-                        <IconContext.Provider value={{ className: "heart" }}>
-                          <BsHeartFill />
-                        </IconContext.Provider>
-                      ) : (
-                        <IconContext.Provider value={{ className: "heart" }}>
-                          <BsHeart />
-                        </IconContext.Provider>
-                      )}
-                    </span>
-                    {articleLikes(article)}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+          <ArticleCard
+            render={title === "videos" ? firstVideos : firstArticles}
+            artRef={artRef}
+            articleHover={articleHover}
+            showArticle={showArticle}
+            setArticle={setArticle}
+            playButton={playButton}
+            title={title}
+            heart={heart}
+            articleLikes={articleLikes}
+          />
         </div>
 
         {!video.playVideo &&
           title === "videos" &&
           vid.map((v) => (
-            <div className="vid">
+            <div className="vid" key={v.id}>
               <img src={v.imgPath} alt="img" id="vidImg" />
               <div className="playVid" onClick={() => playVideo(v)}>
                 <img src={playButton} alt="playButton" id="playVid" />
@@ -447,6 +492,21 @@ function Article() {
               </div>
             </div>
           ))}
+
+        {/*Second Articles after click*/}
+        <div className="article-card-container">
+          <ArticleCard
+            render={title === "videos" ? secondVideos : secondArticles}
+            artRef={artRef}
+            articleHover={articleHover}
+            showArticle={showArticle}
+            setArticle={setArticle}
+            playButton={playButton}
+            title={title}
+            heart={heart}
+            articleLikes={articleLikes}
+          />
+        </div>
 
         <div className="more-articles" onClick={moreArticle}>
           <p>
