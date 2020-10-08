@@ -337,6 +337,7 @@ function Article() {
     newArticle.liked = !newArticle.liked;
     setData(allData);
   };
+
   return (
     <section className="article" ref={articleRef}>
       <div className="article-left">
@@ -535,7 +536,10 @@ function Article() {
             {slideShow.map((s) => (
               <div className="slide" key={s.id}>
                 <img src={s.img} alt="mask" />
-                <p>{s.description}</p>
+                <div className="slide-items">
+                  <p>{s.title}</p>
+                  {window.innerWidth <= 900 && <p>{s.description}</p>}
+                </div>
               </div>
             ))}
           </Slider>

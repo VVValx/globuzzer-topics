@@ -14,10 +14,9 @@
 .banner-nav {
   color: #fff;
   position: absolute;
-  left: 4%;
+  left: 3%;
   top: 100px;
-  transform: translateX(-2%);
-  width: 90%;
+  width: 95%;
 }
 
 .banner-nav li {
@@ -54,11 +53,11 @@
 .b-header p:first-child {
   font-size: 64px;
   line-height: 64px;
+  font-weight: bold;
   animation: accomodation 1s ease-in-out;
 }
 
 .b-header p:last-child {
-  font-weight: 100;
   font-size: 36px;
   line-height: 24px;
   animation: explore 1s ease-in-out;
@@ -126,6 +125,7 @@
   border-radius: 10px;
   padding: 10px 0 10px 30px;
   color: #2f2f2f;
+  background: #fff;
   font-size: 21px;
 }
 
@@ -431,7 +431,8 @@
 
   .select-person input {
     width: 232px;
-
+    border-radius: 2px;
+    padding: 10px 0 10px 20px;
     font-size: 9px;
   }
 
@@ -441,14 +442,20 @@
 
   .select-person nav {
     top: 100%;
+    border-radius: 2px;
   }
 
   .select-person li {
     font-size: 9px;
+    padding: 8px 0 8px 20px;
   }
 
   .list-right {
     padding: 20px 30px;
+  }
+
+  .arrowDown {
+    right: 12%;
   }
 }
 
@@ -477,5 +484,13 @@
 @media screen and (max-width: 480px) {
   .list-more {
     display: block;
+  }
+
+  .banner-nav li {
+    padding: 5px 10px;
+  }
+
+  .select-person input {
+    width: 218px;
   }
 }

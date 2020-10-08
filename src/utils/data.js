@@ -9,7 +9,6 @@ import mask from "../components/pages/topic/images/mask.png";
 import london from "../components/pages/topic/images/london.png";
 import lisbon from "../components/pages/topic/images/lisbon.png";
 import screenshot1 from "../components/pages/topic/images/screenshot1.png";
-// import screenshot2 from "../components/pages/topic/images/screenshot2.png";
 import screenshot3 from "../components/pages/topic/images/screenshot3.png";
 
 export const articlesData = [
@@ -426,20 +425,24 @@ export const slide = [
   {
     id: 1,
     img: mask,
-    description: "Goodle launches educational coronavirus website",
+    title: "Google launches educational coronavirus website",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magnaaliqua.Ut enim ad minim veniam, quis nostrud",
   },
   {
     id: 2,
     img: mask,
+    title: "Looking for hotels? These are some of the best hotels in Helsinki",
     description:
-      "Looking for hotels? These are some of the best hotels in Helsinki",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magnaaliqua.Ut enim ad minim veniam, quis nostrud",
   },
 
   {
     id: 3,
     img: mask,
+    title: "Stay in and stop the spread of Covid19. Wash your hands properly",
     description:
-      "Stay in and stop the spread of Covid19. Wash your hands properly",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magnaaliqua.Ut enim ad minim veniam, quis nostrud",
   },
 ];
 
@@ -576,4 +579,13 @@ export const city = [
       },
     ],
   },
+];
+
+export const otherTopics = [
+  { id: 1, title: "Attractions", description: "Helsinki", img: other1 },
+  { id: 2, title: "Accomodation", description: "Helsinki", img: other2 },
+  { id: 3, title: "Local Culture", description: "Helsinki", img: other1 },
+  { id: 4, title: "Attractions", description: "Helsinki", img: other2 },
+  { id: 5, title: "Attractions", description: "Helsinki", img: other1 },
+  { id: 6, title: "Attractions", description: "Helsinki", img: other2 },
 ];

@@ -1,61 +1,39 @@
-import React from "react";
-import other1 from "../images/other-1.png";
-import other2 from "../images/other-2.png";
+import React, { useState } from "react";
+import { otherTopics } from "../../../../utils/data";
 import "./otherTopics.css";
 
 function OtherTopics() {
+  const [data] = useState(otherTopics);
+
+  const cardStyle = (d) => {
+    if (window.innerWidth <= 500) {
+      return {
+        backgroundImage: `url(${d.img})`,
+        height: "110px",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      };
+    }
+  };
   return (
     <section className="other-topics">
       <header className="other-topics-header">
-        {window.innerWidth < 481 ? "Related topics" : "Other topics"}
+        {window.innerWidth <= 500 ? "Related topics" : "Other topics"}
 
         <div className="underline"></div>
       </header>
 
       <div className="card-container">
-        <div className="card">
-          <img src={other1} alt="other1" />
-          <div className="card-items">
-            <p className="card-items-top">Attractions</p>
-            <p className="card-items-bottom">Helsinki</p>
+        {data.map((d) => (
+          <div className="card" key={d.id} style={cardStyle(d)}>
+            <img src={d.img} alt={d.description} />
+            <div className="card-items">
+              <p className="card-items-top">{d.title}</p>
+              <p className="card-items-bottom">{d.description}</p>
+            </div>
           </div>
-        </div>
-        <div className="card">
-          <img src={other2} alt="other2" />
-          <div className="card-items">
-            <p className="card-items-top">Accomodation</p>
-            <p className="card-items-bottom">Helsinki</p>
-          </div>
-        </div>
-        <div className="card">
-          <img src={other1} alt="other1" />
-          <div className="card-items">
-            <p className="card-items-top">Local Culture</p>
-            <p className="card-items-bottom">Helsinki</p>
-          </div>
-        </div>
-
-        <div className="card">
-          <img src={other2} alt="other2" />
-          <div className="card-items">
-            <p className="card-items-top">Attractions</p>
-            <p className="card-items-bottom">Helsinki</p>
-          </div>
-        </div>
-        <div className="card">
-          <img src={other1} alt="other1" />
-          <div className="card-items">
-            <p className="card-items-top">Attractions</p>
-            <p className="card-items-bottom">Helsinki</p>
-          </div>
-        </div>
-        <div className="card">
-          <img src={other2} alt="other2" />
-          <div className="card-items">
-            <p className="card-items-top">Attractions</p>
-            <p className="card-items-bottom">Helsinki</p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

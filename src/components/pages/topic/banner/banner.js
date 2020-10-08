@@ -26,14 +26,20 @@ function Banner() {
   });
   const [select, setSelect] = useState("");
   const [showList, setShowList] = useState(false);
+  const [height, setHeight] = useState("114px");
 
   const hotelRef = useContext(hotelRefContext);
   const articleRef = useContext(articleRefContext);
 
   //for loading in banner list (loads in visa issue on page load)
   useEffect(() => {
+    //sets list as visa issue on page load
     const init = list.filter((l) => l.id === 1);
     setData(init);
+
+    //checks width of page and sets height of select nav
+    changeHeight();
+    window.addEventListener("resize", changeHeight);
   }, []);
 
   useEffect(() => {
@@ -51,6 +57,12 @@ function Banner() {
 
     //eslint-disable-next-line
   }, [select]);
+
+  const changeHeight = () => {
+    const width = window.innerWidth;
+    if (width <= 900) setHeight("81px");
+    if (width > 900 && width <= 1101) setHeight("99px");
+  };
 
   const changeList = (currentList) => {
     const init = list.filter(
@@ -161,7 +173,7 @@ function Banner() {
                 <IoIosArrowDown />
               </IconContext.Provider>
 
-              <nav style={{ height: showList && "126px" }}>
+              <nav style={{ height: showList && height }}>
                 <ul>
                   <li onClick={handleList}>
                     Person who will stay for a long term
