@@ -369,7 +369,7 @@ function Article() {
           />
         </div>
 
-        <div className="">
+        <div className="video-article-search">
           <input
             type="text"
             value={input}
