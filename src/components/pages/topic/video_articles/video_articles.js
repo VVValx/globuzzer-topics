@@ -372,8 +372,8 @@ function Article() {
         <div>
           <input
             type="text"
-            value="something"
-            placeholder="placeholder"
+            value={input}
+            placeholder={`Search ${title} here...`}
             id="search_input"
           />
         </div>
