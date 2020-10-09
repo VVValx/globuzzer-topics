@@ -15,7 +15,6 @@ function App() {
       <Switch>
         <Route path="/cities" exact component={Cities} />
         <Route path="/cities/:city" exact component={City} />
-
         <Route path="/" exact component={Topic} />
         <Route path="/notFound" component={NotFound} />
         <Redirect to="/notFound" />

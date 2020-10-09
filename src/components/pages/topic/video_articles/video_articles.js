@@ -369,6 +369,16 @@ function Article() {
           />
         </div>
 
+        <div className="search">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={`Search ${title} here...`}
+            id="search_input"
+          />
+        </div>
+
         {/* original data */}
         <div className="article-card-container">{originalData()}</div>
 

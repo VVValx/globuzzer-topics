@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import blueWoman from "../images/blue-woman.png";
 import casualBoy from "../images/casualBoy.png";
 import womanBlack from "../images/womanBlack.png";
@@ -89,7 +90,20 @@ function Members() {
           </div>
 
           <div className="details">
-            <div className="red-circle">+</div>
+            <div className="red-circle">
+              <div className="red-circle-wrapper">
+                <div className="red-circle-front">
+                  <p>+</p>
+                </div>
+                <div className="red-circle-back">
+                  <p>
+                    <Link to="/cities" className="link">
+                      Join us
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="details ">

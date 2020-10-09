@@ -494,3 +494,27 @@
     width: 218px;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .b-center {
+    top: 54%;
+  }
+
+  .b-header p:first-child {
+    line-height: normal;
+  }
+
+  .b-center button {
+    margin-top: 10px;
+  }
+
+  .select-person {
+    margin-top: 25px;
+  }
+}
+
+@media screen and (max-height: 480px) {
+  .banner-nav {
+    display: none;
+  }
+}
