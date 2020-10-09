@@ -369,7 +369,7 @@ function Article() {
           />
         </div>
 
-        <div>
+        <div className="">
           <input
             type="text"
             value={input}
