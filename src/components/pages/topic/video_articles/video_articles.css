@@ -49,7 +49,19 @@
 }
 
 .video-article-search {
+  margin: 25px 0;
   border: 2px solid red;
+}
+
+.video-article-search input {
+  border: 1px solid #c3c3c3;
+  width: 50%;
+  padding: 10px 12px;
+  border-radius: 20px;
+  color: #888888;
+  opacity: 70%;
+  font-size: 18px;
+  box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2);
 }
 
 .article-card-container {
