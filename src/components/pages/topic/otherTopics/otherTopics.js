@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { otherTopics } from "../../../../utils/data";
 import "./otherTopics.css";
 
 function OtherTopics() {
   const [data] = useState(otherTopics);
+  const [smallScreen, setSmallScreen] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("resize", checkScreen);
+    checkScreen();
+  }, []);
+
+  const checkScreen = () => {
+    if (window.innerWidth <= 500) setSmallScreen(true);
+  };
 
   const cardStyle = (d) => {
-    if (window.innerWidth <= 500) {
+    if (smallScreen) {
       return {
         backgroundImage: `url(${d.img})`,
         height: "110px",
@@ -19,7 +29,7 @@ function OtherTopics() {
   return (
     <section className="other-topics">
       <header className="other-topics-header">
-        {window.innerWidth <= 500 ? "Related topics" : "Other topics"}
+        {smallScreen ? "Related topics" : "Other topics"}
 
         <div className="underline"></div>
       </header>
