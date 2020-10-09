@@ -369,12 +369,11 @@ function Article() {
           />
         </div>
 
-        <div className="search">
+        <div>
           <input
             type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder={`Search ${title} here...`}
+            value="something"
+            placeholder="placeholder"
             id="search_input"
           />
         </div>
