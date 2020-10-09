@@ -17,6 +17,7 @@ function Menu() {
   const [scroll, setScroll] = useState(false);
   const [displaySidebar, setSidebar] = useState(false);
   const [weather, setWeather] = useState({});
+  const [search, setSearch] = useState("");
 
   const handleScroll = () => {
     if (window.pageYOffset > 30) return setScroll(true);
@@ -57,6 +58,18 @@ function Menu() {
         boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
         width: "100%",
       };
+    }
+  };
+
+  const serviceStyle = (link) => {
+    const s = search.toLowerCase();
+
+    if (s.length > 2) {
+      if (link.startsWith(s) || link.endsWith(s) || link.includes(s)) {
+        return {
+          color: "#f24b6a",
+        };
+      }
     }
   };
 
@@ -128,12 +141,14 @@ function Menu() {
                   <input
                     type="text"
                     placeholder="Search for services here..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                   />
                 </div>
 
                 <p className="recently">Recently:</p>
-                <li>Flight</li>
-                <li>Hotel</li>
+                <li style={serviceStyle("flight")}>Flight</li>
+                <li style={serviceStyle("hotel")}>Hotel</li>
               </ul>
 
               <ul>
@@ -141,14 +156,14 @@ function Menu() {
               </ul>
 
               <ul>
-                <li>Event</li>
-                <li>Restaurant</li>
+                <li style={serviceStyle("event")}>Event</li>
+                <li style={serviceStyle("restaurant")}>Restaurant</li>
               </ul>
 
               <ul>
-                <li>Transportation</li>
-                <li>Job</li>
-                <li>Flight</li>
+                <li style={serviceStyle("transportation")}>Transportation</li>
+                <li style={serviceStyle("job")}>Job</li>
+                <li style={serviceStyle("flight")}>Flight</li>
               </ul>
             </nav>
           </li>
