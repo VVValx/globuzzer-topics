@@ -367,16 +367,10 @@ function Article() {
             placeholder={`Search ${title} here...`}
             id="search_input"
           />
-        </div>
 
-        <div className="video-article-search">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder={`Search ${title} here...`}
-            id="search_input"
-          />
+          <IconContext.Provider value={{ className: "a-search" }}>
+            <BsSearch />
+          </IconContext.Provider>
         </div>
 
         {/* original data */}
