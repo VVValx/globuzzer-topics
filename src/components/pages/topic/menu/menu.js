@@ -16,7 +16,7 @@ import "./menu.css";
 function Menu() {
   const [scroll, setScroll] = useState(false);
   const [displaySidebar, setSidebar] = useState(false);
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState("");
   const [search, setSearch] = useState("");
 
   const handleScroll = () => {
@@ -37,12 +37,11 @@ function Menu() {
       navigator.geolocation.getCurrentPosition(async ({ coords }) => {
         const lat = coords.latitude,
           long = coords.longitude;
-        const url = `http://api.weatherstack.com/current?access_key=0ac37fc2bca524fc33aac3bbf897fdfa&query=${lat},${long}`;
+        const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=114ee7a60061eee0bf6dcbadd54d36a8&units=metric`;
         const { data } = await Axios(url);
 
-        const temp = data.current.temperature + "°C";
-        const icon = data.current.weather_icons[0];
-        setWeather({ temp, icon });
+        const temp = Math.round(data.main.temp) + "°C";
+        setWeather(temp);
       });
     } catch (error) {
       setWeather("");
@@ -226,8 +225,8 @@ function Menu() {
 
         <ul className="m-right">
           <li>
-            <img src={weather.icon || icon_img} alt="weather-icon" />
-            {weather.temp}
+            <img src={icon_img} alt="weather-icon" />
+            {weather}
           </li>
           <li>Log in</li>
           <li>

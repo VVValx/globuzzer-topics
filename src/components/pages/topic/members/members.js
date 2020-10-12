@@ -40,7 +40,11 @@ function Members() {
               <p>+</p>
             </div>
             <div className="back">
-              <p>Join us</p>
+              <p>
+                <Link to="/cities" className="link">
+                  Join us
+                </Link>
+              </p>
             </div>
           </div>
         </div>
