@@ -37,7 +37,7 @@ function Menu() {
       navigator.geolocation.getCurrentPosition(async ({ coords }) => {
         const lat = coords.latitude,
           long = coords.longitude;
-        const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=114ee7a60061eee0bf6dcbadd54d36a8&units=metric`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=114ee7a60061eee0bf6dcbadd54d36a8&units=metric`;
         const { data } = await Axios(url);
 
         const temp = Math.round(data.main.temp) + "°C";
