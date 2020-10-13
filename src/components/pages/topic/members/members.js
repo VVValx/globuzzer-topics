@@ -97,14 +97,14 @@ function Members() {
             <div className="red-circle">
               <div className="red-circle-wrapper">
                 <div className="red-circle-front">
-                  <p>+</p>
+                  <p><svg stroke="currentColor" fill="none" stroke-width="1.7" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"  height="0.6em" width=".6em" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></p>
                 </div>
                 <div className="red-circle-back">
+                  <Link to="/cities" className="link">
                   <p>
-                    <Link to="/cities" className="link">
-                      Join us
-                    </Link>
+                    Join us
                   </p>
+                  </Link>
                 </div>
               </div>
             </div>

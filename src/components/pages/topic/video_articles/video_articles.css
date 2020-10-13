@@ -221,7 +221,6 @@
 }
 .playVid:hover {
   background: #f24b6a;
-  border: 2px solid #f24b6a;
   cursor: pointer;
 }
 

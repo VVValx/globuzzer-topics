@@ -83,7 +83,7 @@ function Banner() {
   };
 
   const onReady = (e) => {
-    e.target.pauseVideo();
+    e.target.playVideo();
   };
 
   const playVideo = ({ videoId }) => {
@@ -108,10 +108,10 @@ function Banner() {
   };
 
   const opts = {
-    height: "550",
-    width: "100%",
+    width:"100%" ,
+    height: "380px",
     playerVars: {
-      autoplay: 0,
+      autoplay: 1,
     },
   };
 
@@ -255,13 +255,12 @@ function Banner() {
         <div className="list-item">
           {data.map((d) => (
             <React.Fragment key={d.id}>
-              <div className="list-left">
+              <div className="list-left" >
                 <img src={d.imgPath} alt="helsinki" id="list" />
-
                 <div className="list-desc">
-                  <span onClick={() => playVideo(d)}>
-                    <img src={playButton} alt="playButton" id="list-play" />
-                  </span>
+                  <div className="listVid" onClick={() => playVideo(d)}>
+                    <img src={playButton} alt="playButton" id="listVid" />
+                  </div>
                   <p>Accomodation in Helsinki</p>
                 </div>
 

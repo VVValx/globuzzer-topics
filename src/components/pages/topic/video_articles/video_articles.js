@@ -180,7 +180,7 @@ function Article() {
   };
 
   const onReady = (e) => {
-    e.target.pauseVideo();
+    e.target.playVideo();
   };
 
   const playVideo = ({ videoId }) => {
@@ -338,6 +338,8 @@ function Article() {
     setData(allData);
   };
 
+  
+
   return (
     <section className="article" ref={articleRef}>
       <div className="article-left">
@@ -383,7 +385,7 @@ function Article() {
             artRef={artRef}
             articleHover={articleHover}
             showArticle={showArticle}
-            setArticle={setArticle}
+      
             playButton={playButton}
             title={title}
             heart={heart}

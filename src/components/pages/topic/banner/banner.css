@@ -214,6 +214,25 @@
   text-align: center;
 }
 
+.listVid {
+  width: 57px;
+  height: 54px;
+  margin: 0 auto;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.listVid:hover {
+  background: #f24b6a;
+  border-top: 3px solid #f24b6a;
+  border-bottom: 1px solid #f24b6a;
+}
+
+#listVid {
+  width: 100%;
+  height: 100%;
+}
+
 .list-desc p {
   color: #fff;
   margin-top: 20px;
@@ -297,7 +316,7 @@
   width: 100%;
   object-fit: cover;
   height: 100%;
-  max-height: 100%;
+  display: block;
 }
 
 @keyframes accomodation {
@@ -422,6 +441,11 @@
 
   .banner-nav li {
     font-size: 12px;
+  }
+
+  #list {
+    height: 100%;
+    max-height: 350px;
   }
 
   .banner-arrow {

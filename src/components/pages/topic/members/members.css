@@ -55,6 +55,7 @@
   height: 110px;
   position: relative;
   color: #fff;
+  -webkit-perspective: 1000px;
   perspective: 1000px;
 }
 
@@ -62,8 +63,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  transition: transform 0.3s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .front,
@@ -71,9 +74,22 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background: #f24b6a;
+  background: #f4627d;
   border-radius: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+.inner-circle:hover {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .big-circle p {
@@ -90,14 +106,6 @@
   top: 38%;
   left: 25%;
   font-weight: bold;
-}
-
-.back {
-  transform: rotateY(180deg);
-}
-
-.inner-circle:hover {
-  transform: rotateY(180deg);
 }
 
 .underline {
@@ -137,7 +145,7 @@
   }
 
   .details img {
-    width: 90px;
+    width: 80px;
   }
 
   .red-circle {
@@ -160,9 +168,10 @@
 
   .red-circle {
     position: relative;
-    width: 75px;
-    height: 75px;
+    width: 82px;
+    height: 82px;
     margin: 0 auto;
+    -webkit-perspective: 1000px;
     perspective: 1000px;
   }
 
@@ -173,7 +182,9 @@
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transition: all 0.3s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
   }
 
   .red-circle-front,
@@ -181,17 +192,26 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background: #f24b6a;
+    background: #f4627d;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     color: #fff;
     border-radius: 100%;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  .red-circle-front {
+    z-index: 2;
   }
 
   .red-circle-back {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
   }
 
   .red-circle-wrapper:hover {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
   }
 
@@ -200,15 +220,15 @@
   }
 
   .red-circle-front p {
-    left: 17px;
-    top: -5px;
+    left: 19px;
+    top: 19px;
   }
 
   .red-circle-back p {
     font-size: 16px;
     font-weight: bold;
-    top: 25px;
-    left: 10px;
+    top: 30px;
+    left: 13px;
   }
 }
 

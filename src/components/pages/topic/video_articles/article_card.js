@@ -8,7 +8,6 @@ function Article_card({
   artRef,
   articleHover,
   showArticle,
-  setArticle,
   playButton,
   title,
   heart,
@@ -22,7 +21,7 @@ function Article_card({
       ref={artRef}
     >
       <span onClick={() => showArticle(article, index)}>
-        <img src={article.imgPath} alt={article.title} id="article-card-img" />
+        <img src={article.imgPath} alt={article.title} id="article-card-img"/>
       </span>
       <IconContext.Provider value={{ className: "forward" }}>
         <RiShareForwardBoxFill />
