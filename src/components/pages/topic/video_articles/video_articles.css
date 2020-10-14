@@ -325,9 +325,42 @@
   object-fit: cover;
 }
 
+.slideDots {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 20px auto;
+  padding: 0;
+
+  border-radius: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.slideDots li {
+  list-style: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 8px;
+  padding: 0;
+}
+
+.slideDots li button {
+  border: none;
+  color: transparent;
+  cursor: pointer;
+  display: block;
+  height: 10px;
+  width: 10px;
+  border-radius: 7.5px;
+  background: #d8d8d8;
+}
+
+.slideDots .slick-active button {
+  background: #979797;
+}
+
 .g-vimeo {
   display: none;
-  margin-top: 20px;
 }
 
 .g-vimeo-content {

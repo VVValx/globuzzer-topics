@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import ArticleCard from "./article_card";
 import Youtube from "react-youtube";
 import playButton from "../images/playButton.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import Slider from "react-slick";
 import { IconContext } from "react-icons";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -98,6 +97,7 @@ function Article() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    dotsClass: "slideDots",
   };
 
   const slicedData = sliceData(
@@ -338,8 +338,6 @@ function Article() {
     setData(allData);
   };
 
-  
-
   return (
     <section className="article" ref={articleRef}>
       <div className="article-left">
@@ -385,7 +383,6 @@ function Article() {
             artRef={artRef}
             articleHover={articleHover}
             showArticle={showArticle}
-      
             playButton={playButton}
             title={title}
             heart={heart}
