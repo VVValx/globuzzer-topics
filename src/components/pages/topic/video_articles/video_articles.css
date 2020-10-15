@@ -328,7 +328,7 @@
 .slideDots {
   display: inline-block;
   vertical-align: middle;
-  margin: 20px auto;
+  margin: 20px auto 10px auto;
   padding: 0;
 
   border-radius: 40px;
@@ -340,7 +340,7 @@
   list-style: none;
   cursor: pointer;
   display: inline-block;
-  margin: 0 8px;
+  margin: 0 12px;
   padding: 0;
 }
 
@@ -564,7 +564,8 @@ input {
   .more-articles p:last-child {
     display: block;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
   }
 
   .arrow-down {

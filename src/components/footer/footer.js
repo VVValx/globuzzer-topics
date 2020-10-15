@@ -117,7 +117,9 @@ function Footer() {
               <img src={pinterest} alt="pinterest" />
             </li>
 
-            <li style={{ paddingTop: "50px" }}>Globuzzer 2020</li>
+            <li style={{ paddingTop: "50px" }}>
+              2020 Globuzzer. All rights reserved
+            </li>
           </ul>
         </nav>
       </footer>
