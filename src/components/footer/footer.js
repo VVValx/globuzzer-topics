@@ -109,6 +109,14 @@ function Footer() {
               <img src={pinterest} alt="pinterest" />
             </li>
 
+            <li>
+              <img src={f_i} alt="facebook" />
+
+              <img src={twitter} alt="twitter" />
+
+              <img src={pinterest} alt="pinterest" />
+            </li>
+
             <li style={{ paddingTop: "50px" }}>Globuzzer 2020</li>
           </ul>
         </nav>

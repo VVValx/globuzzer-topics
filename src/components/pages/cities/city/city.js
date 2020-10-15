@@ -4,17 +4,19 @@ import { IconContext } from "react-icons";
 import { IoIosArrowDropleft } from "react-icons/io";
 import "./city.css";
 
-function City({ history, match }) {
+function City({ history }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setCity();
-    // eslint-disable-next-line
+    let mounted = true;
+
+    mounted && setCity();
+
+    return () => (mounted = false);
   }, []);
 
   const setCity = () => {
-    const cityName = match.params.city;
-    const country = city.filter((c) => c.name === cityName);
+    const country = city.filter((c) => c.name === "Helsinki");
 
     setData(country[0].details);
   };
@@ -32,7 +34,7 @@ function City({ history, match }) {
         <header>
           <p>
             <span>$20 per month </span>
-            <span className="city_name">for {match.params.city}</span>
+            <span className="city_name">for Helsinki</span>
           </p>
         </header>
 

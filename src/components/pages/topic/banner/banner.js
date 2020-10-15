@@ -108,7 +108,7 @@ function Banner() {
   };
 
   const opts = {
-    width:"100%" ,
+    width: "100%",
     height: "380px",
     playerVars: {
       autoplay: 1,
@@ -149,7 +149,7 @@ function Banner() {
             <p>Explore different kinds of information</p>
           </header>
 
-          <Link to="/cities" className="link">
+          <Link to="/city" className="link">
             <button>Join us</button>
           </Link>
 
@@ -255,7 +255,7 @@ function Banner() {
         <div className="list-item">
           {data.map((d) => (
             <React.Fragment key={d.id}>
-              <div className="list-left" >
+              <div className="list-left">
                 <img src={d.imgPath} alt="helsinki" id="list" />
                 <div className="list-desc">
                   <div className="listVid" onClick={() => playVideo(d)}>

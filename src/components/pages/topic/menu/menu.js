@@ -230,7 +230,7 @@ function Menu() {
           </li>
           <li>Log in</li>
           <li>
-            <Link to="/cities" className="link">
+            <Link to="/city" className="link">
               Sign up
             </Link>
           </li>
@@ -316,11 +316,9 @@ function Menu() {
           <div className="sidebar-auth">
             <li>Login</li>
 
-            <li>
-              <Link to="/cities" className="link">
-                Signup
-              </Link>
-            </li>
+            <Link to="/city" className="link">
+              <li>Signup</li>
+            </Link>
           </div>
         </ul>
       </nav>

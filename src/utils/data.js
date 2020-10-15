@@ -449,7 +449,7 @@ export const slide = [
 export const city = [
   {
     id: 1,
-    name: "Rome",
+    name: "Helsinki",
     members: 2803,
     img: lisbon,
     details: [

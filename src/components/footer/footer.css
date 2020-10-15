@@ -86,6 +86,11 @@
     width: 100%;
   }
 
+  .own-left img {
+    margin-top: 10px;
+    width: 50%;
+  }
+
   .own-right-big {
     display: none;
   }
@@ -97,6 +102,7 @@
 
   .own-right-small p {
     margin: 15px 0;
+    font-weight: bold;
   }
 
   .own-right button {
@@ -116,11 +122,23 @@
     font-size: 12px;
   }
 
+  .footer-small header {
+    padding: 5px 0;
+    margin: 20px 0 10px 0;
+    cursor: pointer;
+  }
+
   .footer-small-menu li {
     padding: 8px 0;
   }
 
+  .footer-small-menu li:nth-child(6) {
+    padding: 0px 0;
+  }
+
   .footer-small-menu img {
-    margin: 0 5px;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
   }
 }
