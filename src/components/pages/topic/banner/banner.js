@@ -125,7 +125,7 @@ function Banner() {
   };
 
   return (
-    <React.Fragment>
+    <section className="banner-container">
       <div className="banner">
         <div className="banner-nav">
           <li>
@@ -314,7 +314,7 @@ function Banner() {
           ))}
         </div>
       )}
-    </React.Fragment>
+    </section>
   );
 }
 

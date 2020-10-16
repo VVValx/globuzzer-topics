@@ -478,7 +478,7 @@ input {
   }
 
   .article-right {
-    width: 95%;
+    width: 100%;
     margin: 20px auto 0 auto;
   }
 
@@ -553,8 +553,11 @@ input {
   }
 
   .article-card-container {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    grid-auto-rows: minmax(300px, auto);
+    display: block;
+  }
+
+  .article-card {
+    margin: 5px 0;
   }
 
   .more-articles p:first-child {

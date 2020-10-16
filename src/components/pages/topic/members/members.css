@@ -167,7 +167,6 @@
   }
 
   .red-circle {
-    position: relative;
     width: 82px;
     height: 82px;
     margin: 0 auto;
@@ -193,8 +192,6 @@
     height: 100%;
     position: absolute;
     background: #f4627d;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     color: #fff;
     border-radius: 100%;
     transform-style: preserve-3d;
@@ -206,17 +203,20 @@
   }
 
   .red-circle-back {
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg) translateZ(5px);
+    transform: rotateY(180deg) translateZ(5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   .red-circle-wrapper:hover {
     -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translateZ(5px);
   }
 
   .red-circle p {
     position: absolute;
+    transform: translateZ(20px);
   }
 
   .red-circle-front p {
@@ -249,5 +249,34 @@
 
   .details img {
     width: 70px;
+  }
+
+  .red-circle p {
+    transform: translateZ(10px);
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .member-details-flex {
+    width: 270px;
+  }
+
+  .member-details-flex .details {
+    margin: 5px;
+  }
+
+  .red-circle {
+    width: 75px;
+    height: 75px;
+  }
+
+  .red-circle-front p {
+    left: 16px;
+    top: 16px;
+  }
+
+  .red-circle-back p {
+    top: 28px;
+    left: 10px;
   }
 }

@@ -481,6 +481,10 @@
   .arrowDown {
     right: 12%;
   }
+
+  .b-header p:first-child {
+    line-height: normal;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -524,10 +528,6 @@
     top: 54%;
   }
 
-  .b-header p:first-child {
-    line-height: normal;
-  }
-
   .b-center button {
     margin-top: 10px;
   }
@@ -535,10 +535,46 @@
   .select-person {
     margin-top: 25px;
   }
+
+  .list-flex {
+    padding: 6px 10px;
+  }
 }
 
-@media screen and (max-height: 480px) {
+@media screen and (max-width: 320px) {
   .banner-nav {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 504px) {
+  .banner-nav {
+    display: none;
+  }
+
+  .b-header p:first-child {
+    line-height: normal;
+  }
+
+  .b-center button {
+    margin-top: 5px;
+  }
+
+  .select-person {
+    margin-top: 20px;
+  }
+
+  .b-center {
+    top: 57%;
+  }
+}
+
+@media screen and (max-height: 470px) {
+  .b-header p:last-child {
+    display: none;
+  }
+
+  .select-person {
     display: none;
   }
 }

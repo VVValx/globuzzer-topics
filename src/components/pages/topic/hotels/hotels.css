@@ -2,6 +2,7 @@
 
 .hotel {
   margin: 80px 0;
+  width: 100%;
 }
 
 .hotel-header {
@@ -263,5 +264,9 @@
 @media screen and (max-width: 550px) {
   .hotel-list {
     display: block;
+  }
+
+  .hotel-items:hover {
+    transform: scale(1);
   }
 }

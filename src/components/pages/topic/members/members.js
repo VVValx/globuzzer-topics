@@ -41,7 +41,7 @@ function Members() {
             </div>
             <div className="back">
               <p>
-                <Link to="/cities" className="link">
+                <Link to="/city" className="link">
                   Join us
                 </Link>
               </p>
@@ -115,7 +115,7 @@ function Members() {
                   </p>
                 </div>
                 <div className="red-circle-back">
-                  <Link to="/cities" className="link">
+                  <Link to="/city" className="link">
                     <p>Join us</p>
                   </Link>
                 </div>
